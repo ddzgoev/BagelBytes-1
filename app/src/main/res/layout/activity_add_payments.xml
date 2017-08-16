@@ -174,10 +174,11 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginLeft="80dp"
+        android:layout_marginStart="80dp"
+        android:onClick="onSaveButtonClick"
         android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginStart="80dp" />
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <Button
         android:id="@+id/button4"
