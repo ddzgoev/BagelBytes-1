@@ -1,7 +1,10 @@
 package com.bagelbytes.libertyhacksmerge;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +22,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,6 +39,7 @@ public class Utility_Login extends AppCompatActivity {
         final EditText user = (EditText) findViewById(R.id.edtUsername);
         final TextView test = (TextView) findViewById(R.id.txtUsername);
         Button submit = (Button) findViewById(R.id.Button);
+        Button nextPage = (Button) findViewById(R.id.NextPage);
 
         submit.setOnClickListener(new View.OnClickListener() {
 
@@ -41,6 +48,14 @@ public class Utility_Login extends AppCompatActivity {
                 String password = pass.getText().toString();
                 String username = user.getText().toString();
                 firstStep(username, password);
+            }
+        });
+
+        nextPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(v.getContext(),AddPaymentsActivity.class);
+                v.getContext().startActivity(myIntent);
             }
         });
     }
@@ -55,7 +70,6 @@ public class Utility_Login extends AppCompatActivity {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        System.out.println(response);
                         try {
                             String uid = response.getString("uid");
                             secondStep(uid);
@@ -96,9 +110,9 @@ public class Utility_Login extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            String referral = response.getString("referral");
-                            System.out.println("Referral!" + referral);
+                            final String referral = response.getString("referral");
                             thirdStep(referral);
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -122,26 +136,37 @@ public class Utility_Login extends AppCompatActivity {
     }
 
 
-    public void thirdStep(String referral) {
+    public void thirdStep(final String referral) {
+
         StringBuilder url = new StringBuilder("https://utilityapi.com/api/v2/authorizations?referrals=");
         url.append(referral);//now original string is changed
         url.append("&include=meters");
 
         JSONObject params = new JSONObject();
 
-        JsonObjectRequest thirdRequest = new JsonObjectRequest(Request.Method.GET,url.toString(),params,
+        final JsonObjectRequest thirdRequest = new JsonObjectRequest(Request.Method.GET,url.toString(),params,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            //System.out.print(response);
-                            JSONArray referral = response.getJSONArray("authorizations");
-                            for(int i = 0; i < referral.length(); i++){
-                                JSONObject auth = (JSONObject)referral.get(i);
-                                System.out.println("AUTHORIZATIONS: " + auth);
-
+                            JSONArray referrals = response.getJSONArray("authorizations");
+                            for(int i = 0; i < referrals.length(); i++){
+                                JSONObject auth = (JSONObject)referrals.get(i);
                                 JSONObject meters = auth.getJSONObject("meters");
-                                System.out.println("METERS: " + meters);
+                                JSONArray metersArray = meters.getJSONArray("meters");
+                                for(i = 0; i < metersArray.length(); i++) {
+                                    JSONObject meter = (JSONObject)metersArray.get(i);
+                                    if (meter.getString("status").equals("pending")) {
+                                        System.out.println("AGAIN");
+                                        thirdStep(referral);
+                                    } else {
+                                        //// TODO: 8/16/2017 WRITE FOR LOOP
+                                        String uid = meter.getString("uid");
+                                        System.out.println("DONE - " + uid);
+                                        fourthStep(uid);
+                                    }
+                                }
+
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -162,9 +187,59 @@ public class Utility_Login extends AppCompatActivity {
             }
         };
 
-
-        Volley.newRequestQueue(getApplicationContext()).add(thirdRequest);
+        //TODO - IMPROVE THIS
+        new CountDownTimer(3000, 1000) {
+            public void onTick(long millisUntilFinished) {
+                //do nothing
+            }
+            public void onFinish() {
+                Volley.newRequestQueue(getApplicationContext()).add(thirdRequest);
+            }
+        }.start();
     }
+
+    public void fourthStep(String uid) {
+        String url = "https://utilityapi.com/api/v2/meters/historical-collection";
+
+        JSONObject params = new JSONObject();
+        JSONArray j = new JSONArray();
+        j.put(uid);
+        try {
+            params.put("meters",j);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        //takes a while - todo look into
+        JsonObjectRequest fourthRequest = new JsonObjectRequest(Request.Method.POST,url,params,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            boolean success = response.getBoolean("success");
+                            System.out.println("WAS IT GOOD?: " +  success);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                    }
+                }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String>  params = new HashMap<String, String>();
+                params.put("Authorization", "Bearer 1e010b87252f42b481a92a874d553867");
+                return params;
+            }
+        };
+
+        Volley.newRequestQueue(getApplicationContext()).add(fourthRequest);
+    }
+
 
 
 

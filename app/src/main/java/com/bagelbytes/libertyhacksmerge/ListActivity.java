@@ -33,7 +33,8 @@ public class ListActivity extends Activity implements AdapterView.OnItemClickLis
 
     public void onButtonClick(View v) {
         // Send to blank payment view
-        Intent myIntent = new Intent(v.getContext(),AddPaymentsActivity.class);
+        //FOR TESTING FOR NOW - TODO CHANGE
+        Intent myIntent = new Intent(v.getContext(),Utility_Login.class);
         v.getContext().startActivity(myIntent);
     }
 

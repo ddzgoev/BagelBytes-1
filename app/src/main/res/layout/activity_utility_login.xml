@@ -10,12 +10,11 @@
         android:layout_width="20dp"
         android:layout_height="200dp"
         android:id="@+id/space"
-        android:layout_marginTop="-38dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/Button"
         tools:layout_constraintRight_creator="1"
         android:layout_marginEnd="30dp"
-        android:layout_marginRight="34dp" />
+        android:layout_marginRight="30dp" />
 
     <TextView
         android:text="Username"
@@ -58,9 +57,6 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/edtPassword"
         app:layout_constraintRight_toLeftOf="@+id/space" />
 
-
-
-
     <Button
         android:text="Submit"
         android:layout_width="wrap_content"
@@ -81,6 +77,19 @@
         android:orientation="horizontal"
         tools:layout_editor_absoluteY="20dp"
         tools:layout_editor_absoluteX="0dp" />
+
+    <Button
+        android:id="@+id/NextPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NEXT PAGE - FOR TESTING"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        android:layout_marginTop="35dp"
+        app:layout_constraintTop_toBottomOf="@+id/Button"
+        tools:layout_constraintLeft_creator="1" />
 
 
 </android.support.constraint.ConstraintLayout>
