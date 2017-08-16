@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="dropDownArray">
+        <item>Visa Card Ending in 8999</item>
+        <item>Discover Card Ending in 5993</item>
+        <item>PayPal</item>
+
+    </string-array>
+</resources>

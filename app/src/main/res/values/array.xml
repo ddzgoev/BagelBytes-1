@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="names">
+        <item >Car Loan</item>
+        <item >Utility Bill</item>
+        <item >Rent</item>
+        <item >Student Loan</item>
+        <item >Car Insurance</item>
+    </string-array>
+
+    <string-array name="services">
+        <item>Fake Bank</item>
+        <item>Solar Co.</item>
+        <item>Cheap Homes</item>
+        <item>Fake Bank</item>
+        <item>Liberty Mutual</item>
+    </string-array>
+</resources>
