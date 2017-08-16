@@ -37,8 +37,8 @@ public class ListActivity extends Activity implements AdapterView.OnItemClickLis
         v.getContext().startActivity(myIntent);
     }
 
-    public void onSignOutClick() {
+    public void onSignOutClick(View v) {
         // Send to login view
-
+        finish();
     }
 }
