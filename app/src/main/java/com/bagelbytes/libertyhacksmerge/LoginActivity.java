@@ -47,6 +47,7 @@ public class LoginActivity extends AppCompatActivity {
         db=new DBhandler(LoginActivity.this);
 //inserting users
         db.addUser(new User("jay", "liberty123"));
+        db.addUser(new User("sa", ""));
         db.addUser(new User("david", "liberty123"));
         db.addUser(new User("sam", "liberty123"));
         db.addUser(new User("jeremy", "liberty123"));
