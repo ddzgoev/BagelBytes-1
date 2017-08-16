@@ -5,6 +5,7 @@ package com.bagelbytes.libertyhacksmerge;
  */
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -30,9 +31,10 @@ public class ListActivity extends Activity implements AdapterView.OnItemClickLis
 
     }
 
-    public void onButtonClick() {
+    public void onButtonClick(View v) {
         // Send to blank payment view
-
+        Intent myIntent = new Intent(v.getContext(),AddPaymentsActivity.class);
+        v.getContext().startActivity(myIntent);
     }
 
     public void onSignOutClick() {

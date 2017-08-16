@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorLibBlue"
-    tools:context="com.bagelbytes.libertyhacksmerge.AddPayments">
+    tools:context="com.bagelbytes.libertyhacksmerge.AddPaymentsActivity">
 
     <EditText
         android:id="@+id/editTextPass"

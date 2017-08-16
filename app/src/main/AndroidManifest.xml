@@ -21,7 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddPayments" />
+        <activity android:name=".AddPaymentsActivity" />
         <activity android:name=".ListActivity" />
         <activity android:name=".ListItemDetail" />
         <activity android:name=".Utility_Login"></activity>
