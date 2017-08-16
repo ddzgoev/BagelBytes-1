@@ -27,7 +27,7 @@ public class Utility_Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_utility_login);
 
         final EditText pass = (EditText) findViewById(R.id.edtPassword);
         final EditText user = (EditText) findViewById(R.id.edtUsername);
