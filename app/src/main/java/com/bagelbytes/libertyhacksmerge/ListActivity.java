@@ -9,19 +9,34 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+
 public class ListActivity extends Activity implements AdapterView.OnItemClickListener {
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-        final ListView listview = (ListView) findViewById(R.id.listview1);
+        // Connect to SQLite DB
+        DBhandler db = new DBhandler(ListActivity.this);
+
+        // Create dummy payments for testing -- should be removed
+        Payment pay1 = new Payment(1, "Car Insurance", "Liberty Mutual", "8/27", 104.50, 0);
+        Payment pay2 = new Payment(2, "Utility Bill", "Solar Co", "9/14", 60.34, 1);
+        db.addPayment(pay1);
+        db.addPayment(pay2);
+
+        ListView listview = (ListView) findViewById(R.id.listview);
         listview.setOnItemClickListener(this);
-        final Button signout = (Button) findViewById(R.id.signout);
-        final Button addPayment = (Button) findViewById(R.id.addpayment);
+
+        // Populate listview
+        ArrayAdapter<Payment> arrayAdapter = new ArrayAdapter<Payment>(this, android.R.layout.activity_list_item, db.getAllPayments());
+        listview.setAdapter(arrayAdapter);
 
     }
 
@@ -39,7 +54,9 @@ public class ListActivity extends Activity implements AdapterView.OnItemClickLis
 
     public void onSignOutClick(View v) {
         // Send to login view
-        Intent myIntent = new Intent(v.getContext(),LoginActivity.class);
+        Intent myIntent = new Intent(v.getContext(), LoginActivity.class);
         v.getContext().startActivity(myIntent);
     }
+
+
 }

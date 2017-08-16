@@ -10,6 +10,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 public class DBhandler extends SQLiteOpenHelper {
     //all constants as they are static and final(Db=Database)
@@ -106,5 +107,30 @@ public class DBhandler extends SQLiteOpenHelper {
         // insert row
         db.insert(Payment_Table_Name, null, cv);
         db.close();
+    }
+
+    // Return all Payment objects as an ArrayList
+    public ArrayList<Payment> getAllPayments()
+    {
+        ArrayList<Payment> paymentList = new ArrayList<>();
+        String selectQuery = "SELECT * FROM " + Payment_Table_Name;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()){
+            do {
+                Payment payment = new Payment();
+
+                payment.setId(Integer.parseInt(cursor.getString(0)));
+                payment.setName(cursor.getString(1));
+                payment.setService(cursor.getString(2));
+                payment.setDate(cursor.getString(3));
+                payment.setPay(Double.parseDouble(cursor.getString(4)));
+                payment.setAuto(Integer.parseInt(cursor.getString(5)));
+
+                paymentList.add(payment);
+            } while (cursor.moveToNext());
+        }
+        return paymentList;
     }
 }
