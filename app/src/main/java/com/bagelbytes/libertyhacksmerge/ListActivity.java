@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ListActivity extends Activity implements AdapterView.OnItemClickListener {
 
@@ -35,8 +36,9 @@ public class ListActivity extends Activity implements AdapterView.OnItemClickLis
         listview.setOnItemClickListener(this);
 
         // Populate listview
-        ArrayAdapter<Payment> arrayAdapter = new ArrayAdapter<Payment>(this, android.R.layout.activity_list_item, db.getAllPayments());
-        listview.setAdapter(arrayAdapter);
+        List<Payment> paymentArrayList = db.getAllPayments();
+        PaymentAdapter adapter = new PaymentAdapter(this, paymentArrayList);
+        listview.setAdapter(adapter);
 
     }
 

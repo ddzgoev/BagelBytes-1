@@ -35,7 +35,7 @@ public class AddPaymentsActivity extends AppCompatActivity {
 
 
 
-        Payment p = new Payment(message1, message3, "8-16-17", 39.99, 1 , 0);
+        Payment p = new Payment(0, message1, message3, "8-16-17", 39.99, 1);
         db=new DBhandler(AddPaymentsActivity.this);
         db.addPayment(p);
         finish();
