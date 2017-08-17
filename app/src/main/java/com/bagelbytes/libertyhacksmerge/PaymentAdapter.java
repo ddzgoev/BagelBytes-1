@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 /**
@@ -42,6 +43,7 @@ public class PaymentAdapter extends BaseAdapter {
 
     @Override
     public View getView(int pos, View convertView, ViewGroup parent) {
+
         // get selected entry
         Payment entry = listPayment.get(pos);
 
@@ -65,7 +67,7 @@ public class PaymentAdapter extends BaseAdapter {
 
         // set pay
         TextView paymentPay = (TextView) convertView.findViewById(R.id.pay);
-        paymentDate.setText(Double.toString(entry.getPay()));
+        paymentPay.setText("$" + Double.toString(entry.getPay()));
 
         return convertView;
     }
