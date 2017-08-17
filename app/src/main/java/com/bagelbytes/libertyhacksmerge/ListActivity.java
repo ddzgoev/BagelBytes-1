@@ -5,6 +5,10 @@ package com.bagelbytes.libertyhacksmerge;
  */
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -49,10 +53,11 @@ public class ListActivity extends Activity implements AdapterView.OnItemClickLis
     }
 
     public void onButtonClick(View v) {
-        // Send to blank payment view
-        //FOR TESTING FOR NOW - TODO CHANGE
-        Intent myIntent = new Intent(v.getContext(),Utility_Login.class);
-        v.getContext().startActivity(myIntent);
+
+        AddPaymentDialog f = new AddPaymentDialog();
+        f.show(getFragmentManager(), "dialog");
+        //Intent myIntent = new Intent(v.getContext(),Utility_Login.class);
+        //v.getContext().startActivity(myIntent);
     }
 
     public void onSignOutClick(View v) {
@@ -60,6 +65,7 @@ public class ListActivity extends Activity implements AdapterView.OnItemClickLis
         Intent myIntent = new Intent(v.getContext(), LoginActivity.class);
         v.getContext().startActivity(myIntent);
     }
+
 
 
 }

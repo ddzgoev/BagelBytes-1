@@ -23,7 +23,7 @@
         </activity>
         <activity android:name=".AddPaymentsActivity" />
         <activity android:name=".ListActivity" />
-        <activity android:name=".Utility_Login"></activity>
+        <activity android:name=".Utility_Login" />
     </application>
 
 </manifest>
