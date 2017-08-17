@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="80dp"
+    android:background="@drawable/payment"
+
+    >
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="400dp"
+        android:layout_height="35dp"
+        android:paddingLeft="10dp"
+        android:textSize="10pt"
+        android:paddingTop="5dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlack"
+        />
+
+    <TextView
+        android:id="@+id/service"
+        android:layout_width="400dp"
+        android:layout_height="35dp"
+        android:paddingLeft="10dp"
+        android:textSize="9pt"
+        android:layout_below="@+id/name"
+        android:textColor="@color/darkGrey"
+        />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+        android:textSize="9pt"
+        android:textColor="@color/colorBlack"
+        android:layout_toRightOf="@+id/name"
+        android:layout_centerVertical="true"
+        />
+
+    <TextView
+        android:id="@+id/pay"
+        android:layout_width="10dp"
+        android:layout_height="25dp"
+        android:textSize="8pt"
+        android:textColor="@color/colorBlack"
+        android:layout_toRightOf="@+id/date"
+        android:layout_marginTop="15dp"
+        />
+
+
+
+</RelativeLayout>

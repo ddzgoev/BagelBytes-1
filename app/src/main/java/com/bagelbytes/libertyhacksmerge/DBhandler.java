@@ -126,11 +126,13 @@ public class DBhandler extends SQLiteOpenHelper {
                 payment.setService(cursor.getString(2));
                 payment.setDate(cursor.getString(3));
                 payment.setPay(Double.parseDouble(cursor.getString(4)));
-                payment.setAuto(Integer.parseInt(cursor.getString(5)));
+//                payment.setAuto(Integer.parseInt(cursor.getString(5)));
 
                 paymentList.add(payment);
             } while (cursor.moveToNext());
         }
+        db.close();
+        cursor.close();
         return paymentList;
     }
 }
