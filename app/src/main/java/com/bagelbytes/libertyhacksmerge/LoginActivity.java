@@ -1,17 +1,26 @@
 package com.bagelbytes.libertyhacksmerge;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
     EditText uname,pswd;
+    String username, password;
+    CheckBox saveLoginCheckBox;
+    SharedPreferences loginPreferences;
+    SharedPreferences.Editor loginPrefsEditor;
+    boolean saveLogin;
     Button login;
     DBhandler db;
 
@@ -23,6 +32,16 @@ public class LoginActivity extends AppCompatActivity {
         uname=(EditText)findViewById(R.id.uname);
         pswd=(EditText)findViewById(R.id.password);
         login=(Button)findViewById(R.id.login);
+        saveLoginCheckBox = (CheckBox)findViewById(R.id.saveLoginCheckBox);
+        loginPreferences= getSharedPreferences("loginPrefs", MODE_PRIVATE);
+        loginPrefsEditor = loginPreferences.edit();
+        saveLogin = loginPreferences.getBoolean("saveLogin", false);
+        if(saveLogin=true) {
+            uname.setText(loginPreferences.getString("username", ""));
+            pswd.setText(loginPreferences.getString("password", ""));
+            saveLoginCheckBox.setChecked(true);
+
+        }
         login.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -52,6 +71,32 @@ public class LoginActivity extends AppCompatActivity {
         db.addUser(new User("sam", "liberty123"));
         db.addUser(new User("jeremy", "liberty123"));
     }
+
+    public void onClickSaveLogin(View view) {
+        if(view == login) {
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(uname.getWindowToken(),0);
+
+            username = uname.getText().toString();
+            password = pswd.getText().toString();
+
+            if(saveLoginCheckBox.isChecked()) {
+                loginPrefsEditor.putBoolean("saveLogin", true);
+                loginPrefsEditor.putString("username", username);
+                loginPrefsEditor.putString("password", password);
+                loginPrefsEditor.commit();
+            }else{
+                loginPrefsEditor.clear();
+                loginPrefsEditor.commit();
+            }
+            saveLogin();
+        }
+    }
+    public void saveLogin() {
+        startActivity(new Intent(LoginActivity.this, ListActivity.class));
+        LoginActivity.this.finish();
+    }
+
     public int checkUser(User user)
     {
         return db.checkUser(user);

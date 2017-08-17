@@ -10,6 +10,7 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -62,10 +63,16 @@ public class ListActivity extends Activity implements AdapterView.OnItemClickLis
 
     public void onSignOutClick(View v) {
         // Send to login view
-        Intent myIntent = new Intent(v.getContext(), LoginActivity.class);
-        v.getContext().startActivity(myIntent);
-    }
+        SharedPreferences preferences = getSharedPreferences("loginPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor= preferences.edit();
+        editor.clear();
+        editor.commit();
+        finish();
 
+
+//        Intent myIntent = new Intent(v.getContext(), LoginActivity.class);
+//        v.getContext().startActivity(myIntent);
+    }
 
 
 }
