@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -198,7 +199,7 @@ public class Utility_Login extends AppCompatActivity {
         }.start();
     }
 
-    public void fourthStep(String uid) {
+    public void fourthStep(final String uid) {
         String url = "https://utilityapi.com/api/v2/meters/historical-collection";
 
         JSONObject params = new JSONObject();
@@ -218,6 +219,11 @@ public class Utility_Login extends AppCompatActivity {
                         try {
                             boolean success = response.getBoolean("success");
                             System.out.println("WAS IT GOOD?: " +  success);
+                            if (success){
+                                fifthStep(uid);
+                            }else{
+                                Toast.makeText(Utility_Login.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+                            }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -238,7 +244,94 @@ public class Utility_Login extends AppCompatActivity {
         };
 
         Volley.newRequestQueue(getApplicationContext()).add(fourthRequest);
+
     }
+
+
+    public void fifthStep(final String uid) {
+        StringBuilder url = new StringBuilder("https://utilityapi.com/api/v2/meters/");
+        url.append(uid);
+
+        JSONObject params = new JSONObject();
+
+        final JsonObjectRequest fifthRequest = new JsonObjectRequest(Request.Method.GET,url.toString(),params,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            System.out.println("Status: " +  response.getString("status"));
+                            String status = response.getString("status");
+                            if(status.equals("pending")){
+                                fifthStep(uid);
+                            }else{
+                                String billCount = response.getString("bill_count");
+                                System.out.println("BILL COUNT: " + billCount);
+                                sixthStep(uid);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                    }
+                }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String>  params = new HashMap<String, String>();
+                params.put("Authorization", "Bearer 1e010b87252f42b481a92a874d553867");
+                return params;
+            }
+        };
+        new CountDownTimer(3000, 1000) {
+            public void onTick(long millisUntilFinished) {
+                //do nothing
+            }
+            public void onFinish() {
+                Volley.newRequestQueue(getApplicationContext()).add(fifthRequest);
+            }
+        }.start();
+
+    }
+
+    public void sixthStep(final String uid) {
+        StringBuilder url = new StringBuilder("https://utilityapi.com/api/v2/bills?meters=");
+        url.append(uid);
+
+        JSONObject params = new JSONObject();
+
+        final JsonObjectRequest fifthRequest = new JsonObjectRequest(Request.Method.GET,url.toString(),params,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        System.out.println("Response: " +  response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                    }
+                }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String>  params = new HashMap<String, String>();
+                params.put("Authorization", "Bearer 1e010b87252f42b481a92a874d553867");
+                return params;
+            }
+        };
+        new CountDownTimer(3000, 1000) {
+            public void onTick(long millisUntilFinished) {
+                //do nothing
+            }
+            public void onFinish() {
+                Volley.newRequestQueue(getApplicationContext()).add(fifthRequest);
+            }
+        }.start();
+
+    }
+
 
 
 
