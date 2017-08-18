@@ -6,5 +6,4 @@
     <string name="name">Name</string>
     <string name="due">Due</string>
     <string name="payment">Min.</string>
-    <string name="title_activity_register">RegisterActivity</string>
 </resources>

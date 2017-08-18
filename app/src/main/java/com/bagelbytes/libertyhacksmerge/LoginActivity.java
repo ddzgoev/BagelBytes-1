@@ -23,7 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     boolean saveLogin;
     Button login;
     DBhandler db;
-    Button register;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +32,8 @@ public class LoginActivity extends AppCompatActivity {
         uname=(EditText)findViewById(R.id.uname);
         pswd=(EditText)findViewById(R.id.password);
         login=(Button)findViewById(R.id.login);
-        register=(Button)findViewById(R.id.register);
         saveLoginCheckBox = (CheckBox)findViewById(R.id.saveLoginCheckBox);
-        loginPreferences = getSharedPreferences("loginPrefs", MODE_PRIVATE);
+        loginPreferences= getSharedPreferences("loginPrefs", MODE_PRIVATE);
         loginPrefsEditor = loginPreferences.edit();
         saveLogin = loginPreferences.getBoolean("saveLogin", false);
         if(saveLogin=true) {
@@ -43,13 +42,6 @@ public class LoginActivity extends AppCompatActivity {
             saveLoginCheckBox.setChecked(true);
 
         }
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(),RegisterActivity.class);
-                startActivity(myIntent);
-            }
-        });
         login.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -127,5 +119,4 @@ public class LoginActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

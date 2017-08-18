@@ -24,11 +24,6 @@
         <activity android:name=".AddPaymentsActivity" />
         <activity android:name=".ListActivity" />
         <activity android:name=".Utility_Login" />
-        <activity
-            android:name=".RegisterActivity"
-            android:label="@string/title_activity_register"
-            android:theme="@style/AppTheme"></activity>
-
     </application>
 
 </manifest>
