@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -21,6 +22,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,12 +39,12 @@ public class Utility_Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_utility_login);
+        setContentView(R.layout.activity_utility);
 
-        final EditText pass = (EditText) findViewById(R.id.edtPassword);
-        final EditText user = (EditText) findViewById(R.id.edtUsername);
-        Button submit = (Button) findViewById(R.id.Button);
-        final Spinner sp = (Spinner) findViewById(R.id.spinner);
+//        final EditText pass = (EditText) findViewById(R.id.editText);
+//        final EditText user = (EditText) findViewById(R.id.editText2);
+        Button submit = (Button) findViewById(R.id.btnSubmit);
+        final AutoCompleteTextView sp = (AutoCompleteTextView) findViewById(R.id.edtProvider);
 
         String[] s = { "Test","Other"};
         final ArrayAdapter<String> adp = new ArrayAdapter<String>(this,
@@ -53,14 +55,14 @@ public class Utility_Login extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                String text = sp.getSelectedItem().toString();
-
-                if (text == "Other"){
+                String text = sp.getText().toString();
+                System.out.println(text);
+                if (text.equals("Other")){
                     Intent myIntent = new Intent(v.getContext(),AddPaymentsActivity.class);
                     v.getContext().startActivity(myIntent);
                 }else{
-                    String password = pass.getText().toString();
-                    String username = user.getText().toString();
+                    String password = "test";
+                    String username = "test";
                     firstStep(username, password);
                 }
             }
