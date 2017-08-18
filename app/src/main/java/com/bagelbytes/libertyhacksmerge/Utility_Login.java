@@ -7,8 +7,11 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,27 +41,31 @@ public class Utility_Login extends AppCompatActivity {
 
         final EditText pass = (EditText) findViewById(R.id.edtPassword);
         final EditText user = (EditText) findViewById(R.id.edtUsername);
-        final TextView test = (TextView) findViewById(R.id.txtUsername);
         Button submit = (Button) findViewById(R.id.Button);
-        Button nextPage = (Button) findViewById(R.id.NextPage);
+        final Spinner sp = (Spinner) findViewById(R.id.spinner);
+
+        String[] s = { "Test","Other"};
+        final ArrayAdapter<String> adp = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_dropdown_item, s);
+        sp.setAdapter(adp);
 
         submit.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                String password = pass.getText().toString();
-                String username = user.getText().toString();
-                firstStep(username, password);
+                String text = sp.getSelectedItem().toString();
+
+                if (text == "Other"){
+                    Intent myIntent = new Intent(v.getContext(),AddPaymentsActivity.class);
+                    v.getContext().startActivity(myIntent);
+                }else{
+                    String password = pass.getText().toString();
+                    String username = user.getText().toString();
+                    firstStep(username, password);
+                }
             }
         });
 
-        nextPage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(v.getContext(),AddPaymentsActivity.class);
-                v.getContext().startActivity(myIntent);
-            }
-        });
     }
 
 
@@ -161,7 +168,6 @@ public class Utility_Login extends AppCompatActivity {
                                         System.out.println("AGAIN");
                                         thirdStep(referral);
                                     } else {
-                                        //// TODO: 8/16/2017 WRITE FOR LOOP
                                         String uid = meter.getString("uid");
                                         System.out.println("DONE - " + uid);
                                         fourthStep(uid);

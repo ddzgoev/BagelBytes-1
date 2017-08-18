@@ -53,11 +53,8 @@ public class ListActivity extends Activity implements AdapterView.OnItemClickLis
     }
 
     public void onButtonClick(View v) {
-
-        AddPaymentDialog f = new AddPaymentDialog();
-        f.show(getFragmentManager(), "dialog");
-        //Intent myIntent = new Intent(v.getContext(),Utility_Login.class);
-        //v.getContext().startActivity(myIntent);
+        Intent myIntent = new Intent(v.getContext(),Utility_Login.class);
+        v.getContext().startActivity(myIntent);
     }
 
     public void onSignOutClick(View v) {
