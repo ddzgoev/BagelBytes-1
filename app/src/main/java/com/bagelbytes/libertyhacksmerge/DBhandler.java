@@ -23,7 +23,11 @@ public class DBhandler extends SQLiteOpenHelper {
     //table name
     private static final String Table_Name="user";
     private static final String Payment_Table_Name="payment";
+<<<<<<< HEAD
     private static final String Register_Table_Name="register";
+=======
+    private static final String Payment_Method_Table_Name="paymentMethod";
+>>>>>>> 754f56574184d9251864b3ad09eb25359eb8512e
 
     //Creating mycontacts Columns
     private static final String User_id="id";
@@ -38,12 +42,26 @@ public class DBhandler extends SQLiteOpenHelper {
     private static final String Payment_pay="pay";
     private static final String Payment_auto="auto";
 
+<<<<<<< HEAD
     //Creating Register Columns
     private static final String Register_id="id";
     private static final String Register_fullname="fullname";
     private static final String Register_name="name";
     private static final String Register_password="password";
     private static final String Register_zip="zip";
+=======
+    //Creating PaymentMethod Columns
+    private static final String Payment_Method_id="id";
+    private static final String Payment_Method_type="type";
+    private static final String Payment_Method_paypalEmail="paypalEmail";
+    private static final String Payment_Method_paypalPassword="paypalPassword";
+    private static final String Payment_Method_bankAccountName="bankAccountName";
+    private static final String Payment_Method_bankRoutingNumber="bankRoutingNumber";
+    private static final String Payment_Method_bankAccountNumber="bankAccountNumber";
+    private static final String Payment_Method_creditcardNumber="creditcardNumber";
+    private static final String Payment_Method_creditcardExpirationDate="creditcardExpirationDate";
+    private static final String Payment_Method_creditcardSecurityCode="creditcardSecurityCode";
+>>>>>>> 754f56574184d9251864b3ad09eb25359eb8512e
 
 
     //constructor here
@@ -64,6 +82,11 @@ public class DBhandler extends SQLiteOpenHelper {
                 + Payment_name + " TEXT," + Payment_service + " TEXT," + Payment_date + " NUMERIC," + Payment_pay + " REAL"
                 + Payment_auto + " NUMERIC" + ")";        // Auto (BOOL) is recorded in SQLite as 0 for false, and 1 for true
         db.execSQL(Create_Payment_Table);
+//create paymentMethods table
+        String Create_Payment_Method_Table="CREATE TABLE " + Payment_Method_Table_Name + "(" + Payment_Method_id + " INTEGER PRIMARY KEY,"
+                + Payment_Method_type + " TEXT," + Payment_Method_paypalEmail + " TEXT," + Payment_Method_paypalPassword + " TEXT," + Payment_Method_bankAccountName + " TEXT," + Payment_Method_bankAccountNumber + " NUMERIC,"
+                + Payment_Method_bankRoutingNumber + " TEXT," + Payment_Method_creditcardNumber + " NUMERIC," + Payment_Method_creditcardExpirationDate + " TEXT" + Payment_Method_creditcardSecurityCode + " NUMERIC" + ")";        // Auto (BOOL) is recorded in SQLite as 0 for false, and 1 for true
+        db.execSQL(Create_Payment_Method_Table);
 
         String Create_Register_Table="CREATE TABLE" + Register_Table_Name + "(" + Register_id + " INTEGER PRIMARY KEY,"
                 + Register_fullname + " TEXT," + Register_name + " TEXT," + Register_password + "TEXT," + Register_zip
@@ -76,7 +99,11 @@ public class DBhandler extends SQLiteOpenHelper {
         //Drop table if exists
         db.execSQL("DROP TABLE IF EXISTS " + Table_Name);
         db.execSQL("DROP TABLE IF EXISTS " + Payment_Table_Name);
+<<<<<<< HEAD
         db.execSQL("DROP TABLE IF EXISTS" + Register_Table_Name);
+=======
+        db.execSQL("DROP TABLE IF EXISTS " + Payment_Method_Table_Name);
+>>>>>>> 754f56574184d9251864b3ad09eb25359eb8512e
         //create the table again
         onCreate(db);
     }
@@ -120,6 +147,26 @@ public class DBhandler extends SQLiteOpenHelper {
         //cv.put(Payment_auto,payment.getAuto());
         // insert row
         db.insert(Payment_Table_Name, null, cv);
+        db.close();
+    }
+//add a payment method to the payment method table
+    public void addPaymentMethod(PaymentMethod paymentMethod){
+        // getting db instance for writing the payment
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues cv=new ContentValues();
+        //cv.put(Payment_id,payment.getId());
+        cv.put(Payment_Method_type,paymentMethod.getType());
+        cv.put(Payment_Method_paypalEmail,paymentMethod.getPaypalEmail());
+        cv.put(Payment_Method_paypalPassword,paymentMethod.getPaypalPassword());
+        cv.put(Payment_Method_bankAccountName,paymentMethod.getBankAccountName());
+        cv.put(Payment_Method_bankRoutingNumber,paymentMethod.getBankRoutingNumber());
+        cv.put(Payment_Method_bankAccountNumber,paymentMethod.getBankAccountNumber());
+        cv.put(Payment_Method_creditcardNumber,paymentMethod.getCreditcardNumber());
+        cv.put(Payment_Method_creditcardExpirationDate,paymentMethod.getCreditcardExpirationDate());
+        cv.put(Payment_Method_creditcardSecurityCode,paymentMethod.getCreditcardSecurityCode());
+        //cv.put(Payment_auto,payment.getAuto());
+        // insert row
+        db.insert(Payment_Method_Table_Name, null, cv);
         db.close();
     }
 
