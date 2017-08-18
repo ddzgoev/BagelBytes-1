@@ -56,7 +56,7 @@ public class ListActivity extends Activity implements AdapterView.OnItemClickLis
         SharedPreferences preferences = getSharedPreferences("loginPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor= preferences.edit();
         editor.clear();
-        editor.commit();
+        editor.apply();
         finish();
 
 

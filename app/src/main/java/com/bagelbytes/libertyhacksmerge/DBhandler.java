@@ -23,6 +23,7 @@ public class DBhandler extends SQLiteOpenHelper {
     //table name
     private static final String Table_Name="user";
     private static final String Payment_Table_Name="payment";
+    private static final String Register_Table_Name="register";
 
     //Creating mycontacts Columns
     private static final String User_id="id";
@@ -36,6 +37,14 @@ public class DBhandler extends SQLiteOpenHelper {
     private static final String Payment_date="date";
     private static final String Payment_pay="pay";
     private static final String Payment_auto="auto";
+
+    //Creating Register Columns
+    private static final String Register_id="id";
+    private static final String Register_fullname="fullname";
+    private static final String Register_name="name";
+    private static final String Register_password="password";
+    private static final String Register_zip="zip";
+
 
     //constructor here
     public DBhandler(Context context)
@@ -56,6 +65,10 @@ public class DBhandler extends SQLiteOpenHelper {
                 + Payment_auto + " NUMERIC" + ")";        // Auto (BOOL) is recorded in SQLite as 0 for false, and 1 for true
         db.execSQL(Create_Payment_Table);
 
+        String Create_Register_Table="CREATE TABLE" + Register_Table_Name + "(" + Register_id + " INTEGER PRIMARY KEY,"
+                + Register_fullname + " TEXT," + Register_name + " TEXT," + Register_password + "TEXT," + Register_zip
+                + "NUMERIC" + ")";
+        db.execSQL(Create_Register_Table);
     }
     //Upgrading the Db
     @Override
@@ -63,6 +76,7 @@ public class DBhandler extends SQLiteOpenHelper {
         //Drop table if exists
         db.execSQL("DROP TABLE IF EXISTS " + Table_Name);
         db.execSQL("DROP TABLE IF EXISTS " + Payment_Table_Name);
+        db.execSQL("DROP TABLE IF EXISTS" + Register_Table_Name);
         //create the table again
         onCreate(db);
     }
@@ -135,4 +149,17 @@ public class DBhandler extends SQLiteOpenHelper {
         cursor.close();
         return paymentList;
     }
+
+    public void registerUser(Register user) {
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues cv=new ContentValues();
+        //cv.put(Register_id,user.getId());
+        cv.put(Register_fullname,user.getName());
+        cv.put(Register_name,user.getName());
+        cv.put(Register_password,user.getPassword());
+        cv.put(Register_zip,user.getZip());
+        db.insert(Register_Table_Name, null, cv);
+        db.close();
+    }
+
 }
