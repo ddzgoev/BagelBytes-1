@@ -5,18 +5,11 @@ package com.bagelbytes.libertyhacksmerge;
  */
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class ListActivity extends Activity implements AdapterView.OnItemClickListener {
