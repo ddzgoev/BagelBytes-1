@@ -28,16 +28,46 @@
         android:background="@null"
         />
 
+    <TextView
+        android:id="@+id/nameHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        android:textColor="@color/colorWhite"
+        android:textSize="8pt"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="50dp"/>
+
+    <TextView
+        android:id="@+id/dueHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/due"
+        android:textColor="@color/colorWhite"
+        android:textSize="8pt"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="160dp"/>
+
+    <TextView
+        android:id="@+id/paymentHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/payment"
+        android:textColor="@color/colorWhite"
+        android:textSize="8pt"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="230dp"/>
+
     <ListView
         android:id="@+id/listview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="15dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_above="@+id/addpayment"
-        android:layout_marginBottom="20dp"
-        android:dividerHeight="17dp"
+        android:layout_below="@id/dueHeader"
+        android:layout_marginBottom="80dp"
+        android:dividerHeight="12dp"
         />
 
     <Button
