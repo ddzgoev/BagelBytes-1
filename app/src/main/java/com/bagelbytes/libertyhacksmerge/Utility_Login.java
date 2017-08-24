@@ -41,12 +41,10 @@ public class Utility_Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_utility);
 
-//        final EditText pass = (EditText) findViewById(R.id.editText);
-//        final EditText user = (EditText) findViewById(R.id.editText2);
         Button submit = (Button) findViewById(R.id.btnSubmit);
         final AutoCompleteTextView sp = (AutoCompleteTextView) findViewById(R.id.edtProvider);
 
-        String[] s = { "Test","Other"};
+        String[] s = { "Test","Test2","Abc"};
         final ArrayAdapter<String> adp = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_dropdown_item, s);
         sp.setAdapter(adp);
@@ -57,13 +55,13 @@ public class Utility_Login extends AppCompatActivity {
             public void onClick(View v) {
                 String text = sp.getText().toString();
                 System.out.println(text);
-                if (text.equals("Other")){
-                    Intent myIntent = new Intent(v.getContext(),AddPaymentsActivity.class);
-                    v.getContext().startActivity(myIntent);
-                }else{
+                if (text.equalsIgnoreCase("Test")){
                     String password = "test";
                     String username = "test";
                     firstStep(username, password);
+                }else{
+                    Intent myIntent = new Intent(v.getContext(),AddPaymentsActivity.class);
+                    v.getContext().startActivity(myIntent);
                 }
             }
         });
