@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\ic_launcher.png",
+        "source": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\ic_launcher_round.png",
+        "source": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    }
+]

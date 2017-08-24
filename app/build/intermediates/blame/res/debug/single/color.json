@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_dark.xml",
+        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\color\\abc_secondary_text_material_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_light.xml",
+        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\color\\abc_secondary_text_material_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_light.xml",
+        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\color\\switch_thumb_material_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_dark.xml",
+        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\color\\abc_primary_text_material_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_search_url_text.xml",
+        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\color\\abc_search_url_text.xml"
+    },
+    {
+        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_hint_foreground_material_light.xml",
+        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\color\\abc_hint_foreground_material_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_light.xml",
+        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\color\\abc_primary_text_disable_only_material_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\color\\design_error.xml",
+        "source": "C:\\Users\\tony_000\\.android\\build-cache\\0b1cbc09865f9cde8674fc25a96214fb80f970ba\\output\\res\\color\\design_error.xml"
+    },
+    {
+        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_dark.xml",
+        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\color\\switch_thumb_material_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_light.xml",
+        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\color\\abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_dark.xml",
+        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_hint_foreground_material_dark.xml",
+        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\color\\abc_hint_foreground_material_dark.xml"
+    }
+]
