@@ -78,28 +78,18 @@ public class AddPaymentsActivity extends AppCompatActivity{
 
     public void onSaveButtonClick(View v) {
         // Get the views by id
-        EditText myEditText1 = (EditText) findViewById(R.id.editTextEmail);
-        EditText myEditText2 = (EditText) findViewById(R.id.editTextPassword);
-        EditText myEditText3 = (EditText) findViewById(R.id.editTextNumber);
+        EditText myEditText1 = (EditText) findViewById(R.id.editTextPassword);
+        EditText myEditText2 = (EditText) findViewById(R.id.editTextAccountName);
+        EditText myEditText3 = (EditText) findViewById(R.id.editTextExpDate);
         EditText myEditText4 = (EditText) findViewById(R.id.editTextExpDate);
-        EditText myEditText5 = (EditText) findViewById(R.id.editTextSecurityCode);
-        EditText myEditText6 = (EditText) findViewById(R.id.editTextAccountName);
-        EditText myEditText7 = (EditText) findViewById(R.id.editTextAccountNumber);
-        EditText myEditText8 = (EditText) findViewById(R.id.editTextRoutingNumber);
-
         Spinner paymentMethodSpinner = (Spinner) findViewById(R.id.spinnerPaymentMethod);
         CheckBox mycheckBoxAutoPay = (CheckBox) findViewById(R.id.checkBoxAutoPay);
 
         // Extract the values from the views
-        String TextEmail = myEditText1.getText().toString();
-        String TextPassword = myEditText2.getText().toString();
-        String TextNumber = myEditText3.getText().toString();
-        String TextExpDate = myEditText4.getText().toString();
-        String TextSecurityCode = myEditText5.getText().toString();
-        String TextAccountName = myEditText6.getText().toString();
-        String TextAccountNumber = myEditText7.getText().toString();
-        String TextRoutingNumber = myEditText8.getText().toString();
-
+        String passInput = myEditText1.getText().toString();
+        String nameInput = myEditText2.getText().toString();
+        String userInput = myEditText3.getText().toString();
+        String loanInput = myEditText4.getText().toString();
         boolean auto = mycheckBoxAutoPay.isPressed();
         int autoInt;
         if(auto){
@@ -109,24 +99,12 @@ public class AddPaymentsActivity extends AppCompatActivity{
         }
         String spinnerCurrentSelection = paymentMethodSpinner.getSelectedItem().toString();
 
-//public PaymentMethod(Integer id, String type, String paypalEmail,
-//        String paypalPassword, String bankAccountName, int bankRoutingNumber,
-//        int bankAccountNumber, int creditcardNumber, String creditcardExpirationDate,
-//        int creditcardSecurityCode)
-        PaymentMethod p = null;
-        if(spinnerCurrentSelection.equals("PayPal")) {
-            p = new PaymentMethod(TextEmail, TextPassword);
-        }
-        if(spinnerCurrentSelection.equals("Credit Card")) {
-            p = new PaymentMethod(Integer.parseInt(TextNumber), TextExpDate, Integer.parseInt(TextSecurityCode));
-        }
-        if(spinnerCurrentSelection.equals("Bank Account")) {
-            p = new PaymentMethod(TextAccountName, Integer.parseInt(TextAccountNumber), Integer.parseInt(TextRoutingNumber));
-        }
+//public Payment(Integer id, String name, String service, String date, Double pay, Integer auto)
+        Payment p = new Payment(0, nameInput, loanInput, "8-16-17", 39.99, autoInt);
 
         db = new DBhandler(AddPaymentsActivity.this);
-        db.addPaymentMethod(p);
-        Toast.makeText(AddPaymentsActivity.this,"Payment method succesfully saved.",Toast.LENGTH_SHORT).show();
+        db.addPayment(p);
+        Toast.makeText(AddPaymentsActivity.this,"Payment Saved",Toast.LENGTH_SHORT).show();
         finish();
     }
 }

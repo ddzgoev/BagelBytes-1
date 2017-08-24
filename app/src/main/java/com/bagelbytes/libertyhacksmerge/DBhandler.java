@@ -24,6 +24,8 @@ public class DBhandler extends SQLiteOpenHelper {
     private static final String Table_Name="user";
     private static final String Payment_Table_Name="payment";
     private static final String Register_Table_Name="register";
+    private static final String Payment_Method_Table_Name="paymentMethod";
+
 
     //Creating mycontacts Columns
     private static final String User_id="id";
@@ -45,6 +47,17 @@ public class DBhandler extends SQLiteOpenHelper {
     private static final String Register_password="password";
     private static final String Register_zip="zip";
 
+    //Creating PaymentMethod Columns
+    private static final String Payment_Method_id="id";
+    private static final String Payment_Method_type="type";
+    private static final String Payment_Method_paypalEmail="paypalEmail";
+    private static final String Payment_Method_paypalPassword="paypalPassword";
+    private static final String Payment_Method_bankAccountName="bankAccountName";
+    private static final String Payment_Method_bankRoutingNumber="bankRoutingNumber";
+    private static final String Payment_Method_bankAccountNumber="bankAccountNumber";
+    private static final String Payment_Method_creditcardNumber="creditcardNumber";
+    private static final String Payment_Method_creditcardExpirationDate="creditcardExpirationDate";
+    private static final String Payment_Method_creditcardSecurityCode="creditcardSecurityCode";
 
     //constructor here
     public DBhandler(Context context)
@@ -123,6 +136,27 @@ public class DBhandler extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void addPaymentMethod(PaymentMethod paymentMethod){
+        // getting db instance for writing the payment
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues cv=new ContentValues();
+        //cv.put(Payment_id,payment.getId());
+        cv.put(Payment_Method_type,paymentMethod.getType());
+        cv.put(Payment_Method_paypalEmail,paymentMethod.getPaypalEmail());
+        cv.put(Payment_Method_paypalPassword,paymentMethod.getPaypalPassword());
+        cv.put(Payment_Method_bankAccountName,paymentMethod.getBankAccountName());
+        cv.put(Payment_Method_bankRoutingNumber,paymentMethod.getBankRoutingNumber());
+        cv.put(Payment_Method_bankAccountNumber,paymentMethod.getBankAccountNumber());
+        cv.put(Payment_Method_creditcardNumber,paymentMethod.getCreditcardNumber());
+        cv.put(Payment_Method_creditcardExpirationDate,paymentMethod.getCreditcardExpirationDate());
+        cv.put(Payment_Method_creditcardSecurityCode,paymentMethod.getCreditcardSecurityCode());
+        //cv.put(Payment_auto,payment.getAuto());
+        // insert row
+        db.insert(Payment_Method_Table_Name, null, cv);
+        db.close();
+    }
+
+
     // Return all Payment objects as an ArrayList
     public ArrayList<Payment> getAllPayments()
     {
@@ -150,6 +184,7 @@ public class DBhandler extends SQLiteOpenHelper {
         return paymentList;
     }
 
+
     public void registerUser(Register user) {
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues cv=new ContentValues();
@@ -161,5 +196,7 @@ public class DBhandler extends SQLiteOpenHelper {
         db.insert(Register_Table_Name, null, cv);
         db.close();
     }
+
+
 
 }
