@@ -15,3 +15,11 @@ app/build/
 *.properties
 app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties
 *.ap_
+app/build/generated/source/r/debug/com/bagelbytes/libertyhacksmerge/R.java
+app/build/generated/source/r/debug/com/bagelbytes/libertyhacksmerge/R.java
+app/build/generated/source/r/debug/com/bagelbytes/libertyhacksmerge/R.java
+app/build/generated/source/r/debug/com/bagelbytes/libertyhacksmerge/R.java
+*.json
+app/build/intermediates/blame/res/debug/single/drawable-xxhdpi-v4.json
+app/build/intermediates/restart-dex/debug/tmp-build-info.xml
+*.xml
