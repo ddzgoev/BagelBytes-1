@@ -8,3 +8,10 @@
 /captures
 .externalNativeBuild
 .idea/modules.xml
+.idea/tasks.xml
+.idea/vcs.xml
+app/build/
+*.properties
+*.properties
+app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties
+*.ap_
