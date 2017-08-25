@@ -42,14 +42,28 @@ public class Utility_Login extends AppCompatActivity {
         setContentView(R.layout.activity_utility);
 
         Button submit = (Button) findViewById(R.id.btnSubmit);
-        final AutoCompleteTextView sp = (AutoCompleteTextView) findViewById(R.id.edtProvider);
+        //final AutoCompleteTextView sp = (AutoCompleteTextView) findViewById(R.id.edtProvider);
 
         Button cancel = (Button) findViewById(R.id.btnCancel);
 
-        String[] s = { "Test","Test2","Abc"};
-        final ArrayAdapter<String> adp = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_dropdown_item, s);
-        sp.setAdapter(adp);
+//        final ArrayAdapter<String> adp = new ArrayAdapter<String>(this,
+//                android.R.layout.simple_spinner_dropdown_item, s);
+//        sp.setAdapter(adp);
+//
+//
+        final Spinner spnProvider = (Spinner) findViewById(R.id.spnProviders);
+
+        // Create an ArrayAdapter using the string array and a default spinner
+        ArrayAdapter<CharSequence> staticAdapter = ArrayAdapter
+                .createFromResource(this, R.array.provider_list,
+                        android.R.layout.simple_spinner_item);
+
+        // Specify the layout to use when the list of choices appears
+        staticAdapter
+                .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spnProvider.setAdapter(staticAdapter);
+
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +75,7 @@ public class Utility_Login extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                String text = sp.getText().toString();
+                String text = spnProvider.getSelectedItem().toString();
                 if (text.equalsIgnoreCase("Test")){
                     String password = "test";
                     String username = "test";

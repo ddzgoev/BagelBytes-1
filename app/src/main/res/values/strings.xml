@@ -7,5 +7,31 @@
     <string name="due">Due</string>
     <string name="payment">Min.</string>
     <string name="title_activity_register">RegisterActivity</string>
+    
+    <string-array name="provider_list">
+        <item>Atlantic City Electric</item>
+        <item>Baltimore Gas &amp; Electric</item>
+        <item>Consolidated Edison New York</item>
+        <item>Eversource Energy</item>
+        <item>Hawaii Electric</item>
+        <item>Jersey Central Power and Light</item>
+        <item>Liberty Mutual Insurance</item>
+        <item>Los Angeles Department of Water &amp; Power</item>
+        <item>National Grid (NATGD)</item>
+        <item>Nevada Energy (NEV)</item>
+        <item>Orange and Rockland Utilities</item>
+        <item>Potomac Electric Power Company</item>
+        <item>Pacific Gas and Electric</item>
+        <item>Portland General Electric</item>
+        <item>Public Services Electric and Gas</item>
+        <item>Public Services Electric and Gas - Long Island</item>
+        <item>Pacific Power Utilities</item>
+        <item>Rocky Mountain Power</item>
+        <item>Southern California Edison</item>
+        <item>San Diego Gas &amp; Electric</item>
+        <item>Sacramento Municipal Utility District</item>
+        <item>Xcel Energy</item>
+    </string-array>
+
 
 </resources>
