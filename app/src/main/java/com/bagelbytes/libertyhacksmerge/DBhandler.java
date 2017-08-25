@@ -78,7 +78,7 @@ public class DBhandler extends SQLiteOpenHelper {
                 + Payment_auto + " NUMERIC" + ")";        // Auto (BOOL) is recorded in SQLite as 0 for false, and 1 for true
         db.execSQL(Create_Payment_Table);
 
-        String Create_Register_Table="CREATE TABLE" + Register_Table_Name + "(" + Register_id + " INTEGER PRIMARY KEY,"
+        String Create_Register_Table="CREATE TABLE " + Register_Table_Name + "(" + Register_id + " INTEGER PRIMARY KEY,"
                 + Register_fullname + " TEXT," + Register_name + " TEXT," + Register_password + "TEXT," + Register_zip
                 + "NUMERIC" + ")";
         db.execSQL(Create_Register_Table);
