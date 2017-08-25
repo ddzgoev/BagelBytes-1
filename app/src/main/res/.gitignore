@@ -119,6 +119,4 @@ google-services.json
 freeline.py
 freeline/
 freeline_project_description.json
-app/build/generated/source/r/debug/android/support/design/R.java
-app/build/generated/source/r/debug/android/support/v7/appcompat/R.java
-app/build/generated/source/r/debug/com/bagelbytes/libertyhacksmerge/R.java
+
