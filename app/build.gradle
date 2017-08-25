@@ -32,5 +32,7 @@ dependencies {
     compile 'com.mcxiaoke.volley:library:1.0.19'
     compile 'com.weiwangcn.betterspinner:library-material:1.1.0'
     compile 'com.android.support:design:24.0.0'
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.github.sd6352051.niftydialogeffects:niftydialogeffects:1.0.0@aar'
     testCompile 'junit:junit:4.12'
 }

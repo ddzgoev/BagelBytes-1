@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-h720dp-v13\\values-h720dp-v13.xml",
+        "outputFile": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-h720dp-v13/values-h720dp-v13.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 117
                 },
                 "from": {
-                    "file": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
+                    "file": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/values-h720dp-v13/values-h720dp-v13.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,

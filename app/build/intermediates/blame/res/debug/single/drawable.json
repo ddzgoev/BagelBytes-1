@@ -1,186 +1,202 @@
 [
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_clear_material.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_ic_clear_material.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/edittextbackground.xml",
+        "source": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/src/main/res/drawable/edittextbackground.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_internal_bg.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_cab_background_internal_bg.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_ic_go_search_api_material.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_ic_go_search_api_material.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_tile_bg.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\notification_tile_bg.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/autobutton.xml",
+        "source": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/src/main/res/drawable/autobutton.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_textfield_background_material.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_spinner_textfield_background_material.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_indicator_material.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_ratingbar_indicator_material.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg_low.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\notification_bg_low.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_cab_background_top_material.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_cab_background_top_material.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_switch_thumb_material.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_switch_thumb_material.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_vector_test.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_vector_test.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_cab_background_top_material.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_spinner_textfield_background_material.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_spinner_textfield_background_material.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_go_search_api_material.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_ic_go_search_api_material.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/button.xml",
+        "source": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/src/main/res/drawable/button.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_material.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_tab_indicator_material.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_dark.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_list_selector_holo_dark.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_ab_back_material.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_ic_ab_back_material.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_ic_clear_material.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_ic_clear_material.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_menu_overflow_material.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_ic_menu_overflow_material.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_cab_background_internal_bg.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_cab_background_internal_bg.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_search_material.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_textfield_search_material.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_ic_arrow_drop_right_black_24dp.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_ic_arrow_drop_right_black_24dp.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_item_background_holo_dark.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_ic_search_api_material.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_ic_search_api_material.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_track_material.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_seekbar_track_material.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/design_snackbar_background.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/b818ea2ad92e15d9e682eb44ffe94da2f0bea764/output/res/drawable/design_snackbar_background.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_tab_indicator_material.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_tab_indicator_material.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_indicator_material.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_ratingbar_indicator_material.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_textfield_search_material.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_textfield_search_material.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\autobutton.xml",
-        "source": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\src\\main\\res\\drawable\\autobutton.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_switch_thumb_material.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_switch_thumb_material.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_check_material.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_btn_check_material.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_light.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_list_selector_background_transition_holo_light.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\paybutton.xml",
-        "source": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\src\\main\\res\\drawable\\paybutton.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_tick_mark_material.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_seekbar_tick_mark_material.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_dark.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_list_selector_holo_dark.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/btn_selector.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/81fc0d75913dc4be94d5b0386f2e51854a2028da/output/res/drawable/btn_selector.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\payment.xml",
-        "source": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\src\\main\\res\\drawable\\payment.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_btn_borderless_material.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_btn_borderless_material.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_dialog_material_background.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/dialog_bg.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/81fc0d75913dc4be94d5b0386f2e51854a2028da/output/res/drawable/dialog_bg.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_borderless_material.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_btn_borderless_material.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/btn_unpress.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/81fc0d75913dc4be94d5b0386f2e51854a2028da/output/res/drawable/btn_unpress.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_track_material.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_seekbar_track_material.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\navigation_empty_icon.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\0b1cbc09865f9cde8674fc25a96214fb80f970ba\\output\\res\\drawable\\navigation_empty_icon.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/payment.xml",
+        "source": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/src/main/res/drawable/payment.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_vector_test.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_vector_test.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/notification_bg_low.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/notification_bg_low.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\logo.jpg",
-        "source": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\src\\main\\res\\drawable\\logo.jpg"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_light.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_list_selector_holo_light.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\notification_bg.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/btn_press.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/81fc0d75913dc4be94d5b0386f2e51854a2028da/output/res/drawable/btn_press.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_radio_material.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_btn_radio_material.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/logo.jpg",
+        "source": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/src/main/res/drawable/logo.jpg"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\item.xml",
-        "source": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\src\\main\\res\\drawable\\item.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/navigation_empty_icon.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/b818ea2ad92e15d9e682eb44ffe94da2f0bea764/output/res/drawable/navigation_empty_icon.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_text_cursor_material.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_text_cursor_material.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_light.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_list_selector_holo_light.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_ic_ab_back_material.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_ic_ab_back_material.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_icon_background.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\notification_icon_background.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_light.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_item_background_holo_light.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_search_api_material.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_ic_search_api_material.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/design_fab_background.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/b818ea2ad92e15d9e682eb44ffe94da2f0bea764/output/res/drawable/design_fab_background.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_item_background_holo_light.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/notification_tile_bg.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/notification_tile_bg.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_small_material.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_ratingbar_small_material.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_ic_menu_overflow_material.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_ic_menu_overflow_material.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_snackbar_background.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\0b1cbc09865f9cde8674fc25a96214fb80f970ba\\output\\res\\drawable\\design_snackbar_background.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_small_material.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_ratingbar_small_material.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_material.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_ratingbar_material.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_btn_default_mtrl_shape.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_btn_default_mtrl_shape.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_fab_background.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\0b1cbc09865f9cde8674fc25a96214fb80f970ba\\output\\res\\drawable\\design_fab_background.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_dark.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_list_selector_background_transition_holo_dark.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/notification_icon_background.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/notification_icon_background.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_voice_search_api_material.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_ic_voice_search_api_material.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_btn_check_material.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_btn_check_material.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_thumb_material.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_seekbar_thumb_material.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_dark.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_item_background_holo_dark.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button.xml",
-        "source": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\src\\main\\res\\drawable\\button.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_material.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_ratingbar_material.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_text_cursor_material.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_text_cursor_material.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_dialog_material_background.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_dialog_material_background.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_tick_mark_material.xml",
-        "source": "C:\\Users\\tony_000\\.android\\build-cache\\409548d7cc3bf4e0ceac166ce37ec8661706f7d7\\output\\res\\drawable\\abc_seekbar_tick_mark_material.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_btn_radio_material.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_btn_radio_material.xml"
     },
     {
-        "merged": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\edittextbackground.xml",
-        "source": "C:\\Users\\tony_000\\AndroidStudioProjects\\LibertyHacksMerge\\BagelBytes\\app\\src\\main\\res\\drawable\\edittextbackground.xml"
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/notification_bg.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/notification_bg.xml"
+    },
+    {
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_thumb_material.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_seekbar_thumb_material.xml"
+    },
+    {
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/paybutton.xml",
+        "source": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/src/main/res/drawable/paybutton.xml"
+    },
+    {
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/abc_ic_voice_search_api_material.xml",
+        "source": "/Users/dulong_jere/.android/build-cache/1fb7494a6c5440af6e77021d59fd052e1d87ac6c/output/res/drawable/abc_ic_voice_search_api_material.xml"
+    },
+    {
+        "merged": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/build/intermediates/res/merged/debug/drawable/item.xml",
+        "source": "/Users/dulong_jere/Documents/GitHub/BagelBytes/app/src/main/res/drawable/item.xml"
     }
 ]
