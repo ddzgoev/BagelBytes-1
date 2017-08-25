@@ -19,22 +19,36 @@
     <android.support.v4.widget.Space
         android:layout_width="match_parent"
         android:layout_height="10dp" />
-
-    <android.support.design.widget.TextInputLayout
+    <android.support.v7.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColorHint="@color/colorWhite">
-        <AutoCompleteTextView
-            android:id="@+id/edtProvider"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorWhite"
-            android:hint="Provider"
-            android:textColor="@color/colorWhite"
-            android:textColorHint="@color/colorWhite"
-            android:completionThreshold="1"
-            android:popupTheme="@color/colorWhite"/>
-    </android.support.design.widget.TextInputLayout>
+        android:text="Provider"
+        android:textColor="@color/colorWhite"
+        android:textSize="12dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginBottom="5dp"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+    <Spinner
+        android:id="@+id/spnProviders"
+        android:layout_width="match_parent"
+        android:background="@drawable/spinner"
+        android:layout_height="50dp"
+        android:popupBackground="@color/lightGrey"
+        >
+    </Spinner>
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:src="@drawable/dropdown" />
+    </RelativeLayout>
 
     <android.support.v4.widget.Space
         android:layout_width="match_parent"
