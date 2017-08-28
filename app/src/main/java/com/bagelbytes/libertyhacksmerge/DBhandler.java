@@ -8,20 +8,24 @@ package com.bagelbytes.libertyhacksmerge;
         import android.database.Cursor;
         import android.database.sqlite.SQLiteDatabase;
         import android.database.sqlite.SQLiteOpenHelper;
+        import android.util.Log;
 
         import java.sql.Date;
         import java.util.ArrayList;
 
+        import static java.security.AccessController.getContext;
+
 public class DBhandler extends SQLiteOpenHelper {
     //all constants as they are static and final(Db=Database)
     //Db Version
-    private static final int Db_Version=1;
+    private static final int Db_Version=4;
 
     //Db Name
     private static final String Db_Name="ourDB";
 
     //table name
     private static final String Table_Name="user";
+    private static final String Bill_Table_Name = "bill";
     private static final String Payment_Table_Name="payment";
     private static final String Register_Table_Name="register";
     private static final String Payment_Method_Table_Name="paymentMethod";
@@ -59,6 +63,17 @@ public class DBhandler extends SQLiteOpenHelper {
     private static final String Payment_Method_creditcardExpirationDate="creditcardExpirationDate";
     private static final String Payment_Method_creditcardSecurityCode="creditcardSecurityCode";
 
+    //Creating Bill Columns
+    private static final String Bill_Table_id = "id";
+    private static final String Bill_Table_Account_Number= "accountNumber";
+    private static final String Bill_Table_Account_Holder= "accountHolder";
+    private static final String Bill_Table_Provider= "provider";
+    private static final String Bill_Table_Account_Zip= "accountZip";
+    private static final String Bill_Table_Bill_Name= "billName";
+    private static final String Bill_Table_Payment_Method= "paymentMethodID";
+    private static final String Bill_Table_User= "userID";
+
+
     //constructor here
     public DBhandler(Context context)
     {
@@ -68,6 +83,8 @@ public class DBhandler extends SQLiteOpenHelper {
     //creating table
     @Override
     public void onCreate(SQLiteDatabase db) {
+        System.out.println("IN HERE");
+        Log.d("Database", "In here");
         // writing command for sqlite to create table with required columns
         String Create_Table="CREATE TABLE " + Table_Name + "(" + User_id
                 + " INTEGER PRIMARY KEY," + User_name + " TEXT," + User_password + " TEXT" + ")";
@@ -79,17 +96,38 @@ public class DBhandler extends SQLiteOpenHelper {
         db.execSQL(Create_Payment_Table);
 
         String Create_Register_Table="CREATE TABLE " + Register_Table_Name + "(" + Register_id + " INTEGER PRIMARY KEY,"
-                + Register_fullname + " TEXT," + Register_name + " TEXT," + Register_password + "TEXT," + Register_zip
+                + Register_fullname + " TEXT," + Register_name + " TEXT," + Register_password + " TEXT," + Register_zip
                 + "NUMERIC" + ")";
         db.execSQL(Create_Register_Table);
+
+
+        String Create_Bill_Table="CREATE TABLE " + Bill_Table_Name
+                + "(" + Bill_Table_id + " INTEGER PRIMARY KEY, "
+                + Bill_Table_Account_Holder + " TEXT, "
+                + Bill_Table_Account_Number + " TEXT, "
+                + Bill_Table_Account_Zip + " INTEGER, "
+                + Bill_Table_Provider + " TEXT, "
+                + Bill_Table_Bill_Name + " TEXT, "
+                + Bill_Table_Payment_Method + " INTEGER, "
+                + Bill_Table_User + " INTEGER, "
+                + "FOREIGN KEY(" + Bill_Table_Payment_Method
+                + ") REFERENCES " + Payment_Table_Name  + "(" + Payment_id + "), "
+                + "FOREIGN KEY("+  Bill_Table_User
+                + ") REFERENCES " + Table_Name + "(" + User_id +"))";
+
+        System.out.println("TABLE: " + Create_Bill_Table);
+        db.execSQL(Create_Bill_Table);
     }
     //Upgrading the Db
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         //Drop table if exists
+        Log.d("Database: ", "on upgrade");
         db.execSQL("DROP TABLE IF EXISTS " + Table_Name);
         db.execSQL("DROP TABLE IF EXISTS " + Payment_Table_Name);
-        db.execSQL("DROP TABLE IF EXISTS" + Register_Table_Name);
+        db.execSQL("DROP TABLE IF EXISTS " + Register_Table_Name);
+        db.execSQL("DROP TABLE IF EXISTS " + Bill_Table_Name);
+
         //create the table again
         onCreate(db);
     }
@@ -156,6 +194,56 @@ public class DBhandler extends SQLiteOpenHelper {
         db.close();
     }
 
+
+    //Add new Bill by calling this method
+    public void addBill(Bill bill)
+    {
+        // getting db instance for writing the user
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        // cv.put(User_id,usr.getId());
+        cv.put(Bill_Table_Provider, bill.getProvider());
+        cv.put(Bill_Table_Account_Holder, bill.getAccountHolder());
+        cv.put(Bill_Table_Account_Number, bill.getAccountNumber());
+        cv.put(Bill_Table_Bill_Name, bill.getBillName());
+        cv.put(Bill_Table_Account_Zip, bill.getAccountZip());
+        cv.put(Bill_Table_Payment_Method, bill.getPaymentMethod());
+        cv.put(Bill_Table_User, bill.getUser());
+
+        //inserting row
+        db.insert(Bill_Table_Name, null, cv);
+        //close the database to avoid any leak
+        db.close();
+    }
+
+    //return bills for this user
+    public ArrayList<Bill> getAllBills(Integer userID)
+    {
+        ArrayList<Bill> billList = new ArrayList<>();
+        String selectQuery = "SELECT * FROM " + Bill_Table_Name + " WHERE " + Bill_Table_User + "=" + userID;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()){
+            do {
+                Bill bill = new Bill();
+                bill.setId(cursor.getString(0));
+                bill.setAccountHolder(cursor.getString(1));
+                bill.setAccountNumber(cursor.getString(2));
+                bill.setAccountZip(cursor.getString(3));
+                bill.setProvider(cursor.getString(4));
+                bill.setBillName(cursor.getString(5));
+                bill.setPaymentMethod(6);
+                bill.setUser(7);
+                billList.add(bill);
+            } while (cursor.moveToNext());
+        }
+        db.close();
+        cursor.close();
+        return billList;
+    }
 
     // Return all Payment objects as an ArrayList
     public ArrayList<Payment> getAllPayments()
