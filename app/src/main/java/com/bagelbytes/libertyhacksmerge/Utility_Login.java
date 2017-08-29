@@ -73,24 +73,16 @@ public class Utility_Login extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-            String billName = edtBillName.getText().toString();
-            String accountNumber = edtAccountNumber.getText().toString();
-            String accountHolder = edtAccountHolder.getText().toString();
-            String accountZip = edtAccountZIP.getText().toString();
-            String provider = spnProvider.getSelectedItem().toString();
-
-            Bill b = new Bill(accountNumber,accountHolder,provider,accountZip, billName,0,0);
-            DBhandler db = new DBhandler(Utility_Login.this);
-            db.getWritableDatabase();
-            db.addBill(b);
-
-            ArrayList bills = db.getAllBills(0);
-            System.out.println("HERE");
-            for(int i = 0; i<bills.size();i++){
-                Bill temp = (Bill)bills.get(i);
-                System.out.println(temp.getProvider());
-            }
+            //TODO - make a check to see if fields are filled
+            Payment p = new Payment();
+            //must include
+            p.setZip(Integer.parseInt(edtAccountZIP.getText().toString()));
+            p.setAccountNumber(edtAccountNumber.getText().toString());
+            p.setName(edtBillName.getText().toString());
+            p.setAccountHolder(edtAccountHolder.getText().toString());
+            p.setService(spnProvider.getSelectedItem().toString());
             Intent myIntent = new Intent(v.getContext(),AddPaymentsActivity.class);
+            myIntent.putExtra("payment", p);
             v.getContext().startActivity(myIntent);
 
             }
