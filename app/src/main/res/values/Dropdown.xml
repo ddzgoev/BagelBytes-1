@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="dropDownArray">
-        <item>Select Type of Payment</item>
+    <string-array name="selectPaymentDropDownArray">
+        <item>Select Payment Method</item>
+        <item>Credit Card ending in 2399</item>
+        <item>Bank Account ([Account Name])</item>
+        <item>Paypal ({PayPal Email)</item>
+        <item>ADD NEW PAYMENT METHOD</item>
+
+    </string-array>
+    <string-array name="addPaymentDropDownArray">
+        <item>Select Type of Payment to Add</item>
         <item>PayPal</item>
         <item>Credit Card</item>
         <item>Bank Account</item>
-        <item>Add New Payment Method</item>
 
     </string-array>
 </resources>
