@@ -48,9 +48,7 @@ public class ListActivity extends Activity implements AdapterView.OnItemClickLis
         List<Payment> paymentArrayList = db.getAllPayments();
 
         // Sort List
-
-        //TODO - // FIXME: 8/25/2017
-        //Collections.sort(paymentArrayList, comparator);
+        Collections.sort(paymentArrayList, comparator);
 
         // Add List
         PaymentAdapter adapter = new PaymentAdapter(this, paymentArrayList);

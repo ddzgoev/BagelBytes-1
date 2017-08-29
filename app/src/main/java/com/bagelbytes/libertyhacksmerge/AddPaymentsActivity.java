@@ -22,11 +22,31 @@ public class AddPaymentsActivity extends AppCompatActivity{
         setContentView(R.layout.activity_add_payments);
         makeAllTextFieldsInvisible();
 
-        Spinner paymentMethodSpinner = (Spinner) findViewById(R.id.spinnerPaymentMethod);
-        Log.i("TAG", "On Create: "+paymentMethodSpinner.getSelectedItem().toString());
+        Spinner addPaymentMethodSpinner = (Spinner) findViewById(R.id.spinnerSelectPaymentMethod);
 
-        paymentMethodSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        addPaymentMethodSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(parent.getItemAtPosition(position).toString().equals("Add New Payment Method")){
+                    findViewById(R.id.spinnerAddPaymentMethod).setVisibility(View.VISIBLE);
+                    findViewById(R.id.textViewAddNew).setVisibility(View.VISIBLE);
+                }else{
+                    findViewById(R.id.spinnerAddPaymentMethod).setVisibility(View.GONE);
+                    findViewById(R.id.textViewAddNew).setVisibility(View.GONE);
+                    makeAllTextFieldsInvisible();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+            });
+
+        Spinner selectPaymentMethodSpinner = (Spinner) findViewById(R.id.spinnerAddPaymentMethod);
+
+        selectPaymentMethodSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 Log.i("TAG", "Worked: " + parent.getItemAtPosition(position).toString());
@@ -68,6 +88,7 @@ public class AddPaymentsActivity extends AppCompatActivity{
         findViewById(R.id.editTextAccountName).setVisibility(View.GONE);
         findViewById(R.id.editTextRoutingNumber).setVisibility(View.GONE);
         findViewById(R.id.editTextAccountNumber).setVisibility(View.GONE);
+
     }
 
 
@@ -82,25 +103,17 @@ public class AddPaymentsActivity extends AppCompatActivity{
         EditText myEditText2 = (EditText) findViewById(R.id.editTextAccountName);
         EditText myEditText3 = (EditText) findViewById(R.id.editTextExpDate);
         EditText myEditText4 = (EditText) findViewById(R.id.editTextExpDate);
-        Spinner paymentMethodSpinner = (Spinner) findViewById(R.id.spinnerPaymentMethod);
-        CheckBox mycheckBoxAutoPay = (CheckBox) findViewById(R.id.checkBoxAutoPay);
+        Spinner paymentMethodSpinner = (Spinner) findViewById(R.id.spinnerSelectPaymentMethod);
 
         // Extract the values from the views
         String passInput = myEditText1.getText().toString();
         String nameInput = myEditText2.getText().toString();
         String userInput = myEditText3.getText().toString();
         String loanInput = myEditText4.getText().toString();
-        boolean auto = mycheckBoxAutoPay.isPressed();
-        int autoInt;
-        if(auto){
-            autoInt = 1;
-        }else{
-            autoInt=0;
-        }
         String spinnerCurrentSelection = paymentMethodSpinner.getSelectedItem().toString();
 
 //public Payment(Integer id, String name, String service, String date, Double pay, Integer auto)
-        Payment p = new Payment(0, nameInput, loanInput, "8-16-17", 39.99, autoInt);
+        Payment p = new Payment(0, nameInput, loanInput, "8-16-17", 39.99, 0);
 
         db = new DBhandler(AddPaymentsActivity.this);
         db.addPayment(p);

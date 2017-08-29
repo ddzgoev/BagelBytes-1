@@ -1,6 +1,7 @@
 package com.bagelbytes.libertyhacksmerge;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 
 import android.os.CountDownTimer;
@@ -42,16 +43,12 @@ public class Utility_Login extends AppCompatActivity {
         setContentView(R.layout.activity_utility);
 
         Button submit = (Button) findViewById(R.id.btnSubmit);
-        //final AutoCompleteTextView sp = (AutoCompleteTextView) findViewById(R.id.edtProvider);
-
         Button cancel = (Button) findViewById(R.id.btnCancel);
-
-//        final ArrayAdapter<String> adp = new ArrayAdapter<String>(this,
-//                android.R.layout.simple_spinner_dropdown_item, s);
-//        sp.setAdapter(adp);
-//
-//
         final Spinner spnProvider = (Spinner) findViewById(R.id.spnProviders);
+        final EditText edtBillName = (EditText) findViewById(R.id.edtBillName);
+        final EditText edtAccountNumber = (EditText) findViewById(R.id.edtAccountNumber);
+        final EditText edtAccountHolder = (EditText) findViewById(R.id.edtAccountHolder);
+        final EditText edtAccountZIP = (EditText) findViewById(R.id.edtAccountZIP);
 
         // Create an ArrayAdapter using the string array and a default spinner
         ArrayAdapter<CharSequence> staticAdapter = ArrayAdapter
@@ -71,20 +68,31 @@ public class Utility_Login extends AppCompatActivity {
                 finish();
             }
         });
+
         submit.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                String text = spnProvider.getSelectedItem().toString();
-                if (text.equalsIgnoreCase("Test")){
-                    String password = "test";
-                    String username = "test";
-                    System.out.println("First line...");
-                    //firstStep(username, password);
-                }else{
-                    Intent myIntent = new Intent(v.getContext(),AddPaymentsActivity.class);
-                    v.getContext().startActivity(myIntent);
-                }
+            String billName = edtBillName.getText().toString();
+            String accountNumber = edtAccountNumber.getText().toString();
+            String accountHolder = edtAccountHolder.getText().toString();
+            String accountZip = edtAccountZIP.getText().toString();
+            String provider = spnProvider.getSelectedItem().toString();
+
+            Bill b = new Bill(accountNumber,accountHolder,provider,accountZip, billName,0,0);
+            DBhandler db = new DBhandler(Utility_Login.this);
+            db.getWritableDatabase();
+            db.addBill(b);
+
+            ArrayList bills = db.getAllBills(0);
+            System.out.println("HERE");
+            for(int i = 0; i<bills.size();i++){
+                Bill temp = (Bill)bills.get(i);
+                System.out.println(temp.getProvider());
+            }
+            Intent myIntent = new Intent(v.getContext(),AddPaymentsActivity.class);
+            v.getContext().startActivity(myIntent);
+
             }
         });
 
