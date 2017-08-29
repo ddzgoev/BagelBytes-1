@@ -124,6 +124,7 @@
             android:textColor="@color/colorWhite"
             android:backgroundTint="@color/colorWhite"/>
     </android.support.design.widget.TextInputLayout>
+
     <android.support.v4.widget.Space
         android:layout_width="match_parent"
         android:layout_height="10dp" />

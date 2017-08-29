@@ -19,7 +19,7 @@ package com.bagelbytes.libertyhacksmerge;
 public class DBhandler extends SQLiteOpenHelper {
     //all constants as they are static and final(Db=Database)
     //Db Version
-    private static final int Db_Version=5;
+    private static final int Db_Version=6;
 
     //Db Name
     private static final String Db_Name="ourDB";

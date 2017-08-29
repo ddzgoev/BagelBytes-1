@@ -21,7 +21,8 @@
         android:textColor="@color/colorWhite"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginEnd="16dp" />
 
     <Button
         android:id="@+id/button3"
@@ -37,264 +38,301 @@
         android:textColor="@color/colorWhite"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="16dp" />
 
-    <EditText
-        android:id="@+id/editTextExpDate"
-        style="@android:style/Widget.Holo.EditText"
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/layTextExpDate"
         android:layout_width="0dp"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="309dp"
-        android:background="@drawable/edittextbackground"
-        android:backgroundTint="@color/colorWhite"
-        android:ems="10"
+        android:textColorHint="@color/colorWhite"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:id="@+id/editTextExpDate"
         android:hint=" Enter Expiration Date"
         android:inputType="textPersonName"
-        android:singleLine="false"
-        android:textColor="@color/colorBlack"
-        android:textCursorDrawable="@color/colorBlack"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textColor="@color/colorWhite"
+        android:backgroundTint="@color/colorWhite"/>
+</android.support.design.widget.TextInputLayout>
 
-    <EditText
-        android:id="@+id/editTextAccountNumber"
-        style="@android:style/Widget.Holo.EditText"
-        android:layout_width="0dp"
-        android:layout_height="35dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="309dp"
-        android:background="@drawable/edittextbackground"
-        android:backgroundTint="@color/colorWhite"
-        android:ems="10"
-        android:hint="  Enter Account Number"
-        android:inputType="textPersonName"
-        android:singleLine="false"
-        android:textColor="@color/colorBlack"
-        android:textCursorDrawable="@color/colorBlack"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<android.support.design.widget.TextInputLayout
+    android:id="@+id/layTextAccountNumber"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="16dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="309dp"
+    android:textColorHint="@color/colorWhite"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+<EditText
+    android:layout_width="match_parent"
+    android:layout_height="35dp"
+    android:id="@+id/editTextAccountNumber"
+    android:hint="  Enter Account Number"
+    android:inputType="textPersonName"
+    android:textColor="@color/colorWhite"
+    android:backgroundTint="@color/colorWhite"/>
+</android.support.design.widget.TextInputLayout>
 
-    <EditText
-        android:id="@+id/editTextRoutingNumber"
-        style="@android:style/Widget.Holo.EditText"
-        android:layout_width="0dp"
-        android:layout_height="35dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="372dp"
-        android:background="@drawable/edittextbackground"
-        android:backgroundTint="@color/colorWhite"
-        android:ems="10"
-        android:hint=" Enter Routing Number"
-        android:inputType="textPersonName"
-        android:singleLine="false"
-        android:textColor="@color/colorBlack"
-        android:textCursorDrawable="@color/colorBlack"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<android.support.design.widget.TextInputLayout
+    android:id="@+id/layTextRoutingNumber"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="16dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="372dp"
+    android:textColorHint="@color/colorWhite"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+<EditText
+    android:layout_height="35dp"
+    android:layout_width="match_parent"
+    android:id="@+id/editTextRoutingNumber"
+    android:hint=" Enter Routing Number"
+    android:inputType="textPersonName"
+    android:textColor="@color/colorWhite"
+    android:backgroundTint="@color/colorWhite"/>
+</android.support.design.widget.TextInputLayout>
+
+<android.support.design.widget.TextInputLayout
+    android:id="@+id/layTextSecurityCode"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="16dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="372dp"
+    android:textColorHint="@color/colorWhite"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent" >
 
     <EditText
         android:id="@+id/editTextSecurityCode"
-        style="@android:style/Widget.Holo.EditText"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="372dp"
-        android:background="@drawable/edittextbackground"
         android:backgroundTint="@color/colorWhite"
-        android:ems="10"
         android:hint=" Enter Security Code"
         android:inputType="textPersonName"
-        android:singleLine="false"
-        android:textColor="@color/colorBlack"
-        android:textCursorDrawable="@color/colorBlack"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textColor="@color/colorWhite"/>
+</android.support.design.widget.TextInputLayout>
 
+<android.support.design.widget.TextInputLayout
+    android:id="@+id/layTextAccountName"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="16dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="248dp"
+    android:textColorHint="@color/colorWhite"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent" >
     <EditText
-        android:id="@+id/editTextAccountName"
-        style="@android:style/Widget.Holo.EditText"
-        android:layout_width="0dp"
         android:layout_height="35dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="248dp"
-        android:background="@drawable/edittextbackground"
-        android:backgroundTint="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:id="@+id/editTextAccountName"
         android:ems="10"
         android:hint=" Enter Bank Account Name"
         android:inputType="textPersonName"
-        android:singleLine="false"
-        android:textColor="@color/colorBlack"
-        android:textCursorDrawable="@color/colorBlack"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textColor="@color/colorWhite"
+        android:backgroundTint="@color/colorWhite"/>
+</android.support.design.widget.TextInputLayout>
 
+<android.support.design.widget.TextInputLayout
+    android:id="@+id/layTextNumber"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="16dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="248dp"
+    android:textColorHint="@color/colorWhite"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
     <EditText
         android:id="@+id/editTextNumber"
-        style="@android:style/Widget.Holo.EditText"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="248dp"
-        android:background="@drawable/edittextbackground"
         android:backgroundTint="@color/colorWhite"
-        android:ems="10"
         android:hint=" Enter Credit Card Number"
         android:inputType="textPersonName"
-        android:textColor="@color/colorBlack"
-        android:textCursorDrawable="@color/colorBlack"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textColor="@color/white" />
+</android.support.design.widget.TextInputLayout>
+
+<android.support.design.widget.TextInputLayout
+    android:id="@+id/layTextPassword"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:textColorHint="@color/colorWhite"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="16dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="309dp">
 
     <EditText
         android:id="@+id/editTextPassword"
-        style="@android:style/Widget.Holo.EditText"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="309dp"
-        android:background="@drawable/edittextbackground"
-        android:backgroundTint="@color/colorWhite"
-        android:ems="10"
         android:hint="Enter Password"
         android:inputType="textPassword"
-        android:textColor="@color/colorBlack"
-        android:textCursorDrawable="@color/colorBlack"
+        android:textColor="@color/colorWhite"
+        android:backgroundTint="@color/colorWhite" />
+</android.support.design.widget.TextInputLayout>
+
+<ImageView
+    android:layout_width="125dp"
+    android:layout_height="50dp"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:adjustViewBounds="true"
+    android:src="@drawable/logo"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    tools:layout_editor_absoluteY="6dp"
+    android:id="@+id/imageView" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/layTextEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="248dp"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:layout_width="125dp"
-        android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:adjustViewBounds="true"
-        android:src="@drawable/logo"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        tools:layout_editor_absoluteY="6dp"
-        android:id="@+id/imageView" />
-
-    <EditText
-        android:id="@+id/editTextEmail"
-        style="@android:style/Widget.Holo.EditText"
-        android:layout_width="0dp"
-        android:layout_height="35dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColorHint="@color/colorWhite"
         android:layout_marginEnd="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="248dp"
-        android:background="@drawable/edittextbackground"
-        android:backgroundTint="@color/colorWhite"
-        android:ems="10"
-        android:hint=" Enter Email"
-        android:inputType="textPersonName"
-        android:textColor="@color/colorBlack"
-        android:textCursorDrawable="@color/colorBlack"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginStart="16dp">
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:backgroundTint="@color/colorWhite"
+            android:hint="Enter Email"
+            android:inputType="textPersonName"
+            android:textColor="@color/colorWhite" />
+    </android.support.design.widget.TextInputLayout>
 
-    <TextView
-        android:id="@+id/textViewAddNew"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="155dp"
-        android:text="Add new Payment method:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/colorWhite"
-        android:textSize="20dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<TextView
+    android:id="@+id/textViewAddNew"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="155dp"
+    android:text="Add new Payment method:"
+    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+    android:textColor="@color/colorWhite"
+    android:textSize="20dp"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
 
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:text="Choose Payment Method:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/colorWhite"
-        android:textSize="20dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<TextView
+    android:id="@+id/textView3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="56dp"
+    android:text="Choose Payment Method:"
+    android:textColor="@color/colorWhite"
+    android:textSize="20dp"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
 
-
+<RelativeLayout
+    android:layout_width="300dp"
+    android:layout_height="36dp"
+    android:layout_marginTop="188dp"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/imageView" >
     <Spinner
         android:id="@+id/spinnerAddPaymentMethod"
-        android:layout_width="300dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="188dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@drawable/spinner"
         android:entries="@array/dropDownArray"
         android:popupBackground="@color/lightGrey"
-        android:textColor="@color/colorWhite"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        android:textColor="@color/colorWhite" />
 
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:src="@drawable/dropdown" />
+</RelativeLayout>
 
+<RelativeLayout
+    android:layout_width="300dp"
+    android:layout_height="36dp"
+    android:layout_marginTop="96dp"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/imageView"  >
     <Spinner
         android:id="@+id/spinnerSelectPaymentMethod"
         android:layout_width="300dp"
         android:layout_height="36dp"
-        android:layout_marginTop="96dp"
         android:background="@drawable/spinner"
         android:entries="@array/dropDownArray"
         android:popupBackground="@color/lightGrey"
         android:textColor="@color/colorWhite"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+    />
 
     <ImageView
-        android:id="@+id/spinnerArrow"
-        android:layout_width="wrap_content"
+        android:layout_width="40dp"
         android:layout_height="wrap_content"
-        android:layout_marginRight="30dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="446dp"
-        android:layout_marginEnd="30dp" />
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:src="@drawable/dropdown" />
+</RelativeLayout>
+
+<ImageView
+    android:id="@+id/spinnerArrow"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="30dp"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    android:layout_marginBottom="446dp"
+    android:layout_marginEnd="30dp" />
 
 </android.support.constraint.ConstraintLayout>

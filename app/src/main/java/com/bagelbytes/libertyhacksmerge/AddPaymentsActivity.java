@@ -53,20 +53,35 @@ public class AddPaymentsActivity extends AppCompatActivity{
                 if(parent.getItemAtPosition(position).toString().equals("PayPal")){
                     makeAllTextFieldsInvisible();
                     findViewById(R.id.editTextEmail).setVisibility(View.VISIBLE);
+                    findViewById(R.id.layTextEmail).setVisibility(View.VISIBLE);
+
                     findViewById(R.id.editTextPassword).setVisibility(View.VISIBLE);
+                    findViewById(R.id.layTextPassword).setVisibility(View.VISIBLE);
+
 
                 }
                 if(parent.getItemAtPosition(position).toString().equals("Credit Card")){
                     makeAllTextFieldsInvisible();
                     findViewById(R.id.editTextNumber).setVisibility(View.VISIBLE);
+                    findViewById(R.id.layTextNumber).setVisibility(View.VISIBLE);
+
                     findViewById(R.id.editTextExpDate).setVisibility(View.VISIBLE);
+                    findViewById(R.id.layTextExpDate).setVisibility(View.VISIBLE);
+
                     findViewById(R.id.editTextSecurityCode).setVisibility(View.VISIBLE);
+                    findViewById(R.id.layTextSecurityCode).setVisibility(View.VISIBLE);
+
                 }
                 if(parent.getItemAtPosition(position).toString().equals("Bank Account")){
                     makeAllTextFieldsInvisible();
                     findViewById(R.id.editTextAccountName).setVisibility(View.VISIBLE);
+                    findViewById(R.id.layTextAccountName).setVisibility(View.VISIBLE);
+
                     findViewById(R.id.editTextRoutingNumber).setVisibility(View.VISIBLE);
+                    findViewById(R.id.layTextRoutingNumber).setVisibility(View.VISIBLE);
+
                     findViewById(R.id.editTextAccountNumber).setVisibility(View.VISIBLE);
+                    findViewById(R.id.layTextAccountNumber).setVisibility(View.VISIBLE);
 
                 }
             }
@@ -80,14 +95,30 @@ public class AddPaymentsActivity extends AppCompatActivity{
     }
 
     private void makeAllTextFieldsInvisible() {
+
         findViewById(R.id.editTextEmail).setVisibility(View.GONE);
+        findViewById(R.id.layTextEmail).setVisibility(View.GONE);
+
         findViewById(R.id.editTextPassword).setVisibility(View.GONE);
+        findViewById(R.id.layTextPassword).setVisibility(View.GONE);
+
         findViewById(R.id.editTextNumber).setVisibility(View.GONE);
+        findViewById(R.id.layTextNumber).setVisibility(View.GONE);
+
         findViewById(R.id.editTextExpDate).setVisibility(View.GONE);
+        findViewById(R.id.layTextExpDate).setVisibility(View.GONE);
+
         findViewById(R.id.editTextSecurityCode).setVisibility(View.GONE);
+        findViewById(R.id.layTextSecurityCode).setVisibility(View.GONE);
+
         findViewById(R.id.editTextAccountName).setVisibility(View.GONE);
+        findViewById(R.id.layTextAccountName).setVisibility(View.GONE);
+
         findViewById(R.id.editTextRoutingNumber).setVisibility(View.GONE);
+        findViewById(R.id.layTextRoutingNumber).setVisibility(View.GONE);
+
         findViewById(R.id.editTextAccountNumber).setVisibility(View.GONE);
+        findViewById(R.id.layTextAccountNumber).setVisibility(View.GONE);
 
     }
 
