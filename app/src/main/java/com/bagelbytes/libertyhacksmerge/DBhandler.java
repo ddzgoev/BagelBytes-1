@@ -5,6 +5,7 @@ package com.bagelbytes.libertyhacksmerge;
  */
         import android.content.ContentValues;
         import android.content.Context;
+        import android.content.Intent;
         import android.database.Cursor;
         import android.database.sqlite.SQLiteDatabase;
         import android.database.sqlite.SQLiteOpenHelper;
@@ -18,14 +19,13 @@ package com.bagelbytes.libertyhacksmerge;
 public class DBhandler extends SQLiteOpenHelper {
     //all constants as they are static and final(Db=Database)
     //Db Version
-    private static final int Db_Version=4;
+    private static final int Db_Version=5;
 
     //Db Name
     private static final String Db_Name="ourDB";
 
     //table name
     private static final String Table_Name="user";
-    private static final String Bill_Table_Name = "bill";
     private static final String Payment_Table_Name="payment";
     private static final String Register_Table_Name="register";
     private static final String Payment_Method_Table_Name="paymentMethod";
@@ -39,10 +39,14 @@ public class DBhandler extends SQLiteOpenHelper {
     //Creating Payment Columns
     private static final String Payment_id="id";
     private static final String Payment_name="name";
-    private static final String Payment_service="service";
+    private static final String Payment_service="service"; //provider
     private static final String Payment_date="date";
     private static final String Payment_pay="pay";
     private static final String Payment_auto="auto";
+    private static final String Payment_Account_Number= "accountNumber";
+    private static final String Payment_Account_Holder= "accountHolder";
+    private static final String Payment_Zip= "zip";
+    private static final String Payment_Payment_Method= "paymentMethodID";
 
     //Creating Register Columns
     private static final String Register_id="id";
@@ -63,17 +67,6 @@ public class DBhandler extends SQLiteOpenHelper {
     private static final String Payment_Method_creditcardExpirationDate="creditcardExpirationDate";
     private static final String Payment_Method_creditcardSecurityCode="creditcardSecurityCode";
 
-    //Creating Bill Columns
-    private static final String Bill_Table_id = "id";
-    private static final String Bill_Table_Account_Number= "accountNumber";
-    private static final String Bill_Table_Account_Holder= "accountHolder";
-    private static final String Bill_Table_Provider= "provider";
-    private static final String Bill_Table_Account_Zip= "accountZip";
-    private static final String Bill_Table_Bill_Name= "billName";
-    private static final String Bill_Table_Payment_Method= "paymentMethodID";
-    private static final String Bill_Table_User= "userID";
-
-
     //constructor here
     public DBhandler(Context context)
     {
@@ -83,16 +76,21 @@ public class DBhandler extends SQLiteOpenHelper {
     //creating table
     @Override
     public void onCreate(SQLiteDatabase db) {
-        System.out.println("IN HERE");
-        Log.d("Database", "In here");
         // writing command for sqlite to create table with required columns
         String Create_Table="CREATE TABLE " + Table_Name + "(" + User_id
                 + " INTEGER PRIMARY KEY," + User_name + " TEXT," + User_password + " TEXT" + ")";
         db.execSQL(Create_Table);
 
-        String Create_Payment_Table="CREATE TABLE " + Payment_Table_Name + "(" + Payment_id + " INTEGER PRIMARY KEY,"
-                + Payment_name + " TEXT," + Payment_service + " TEXT," + Payment_date + " NUMERIC," + Payment_pay + " REAL"
-                + Payment_auto + " NUMERIC" + ")";        // Auto (BOOL) is recorded in SQLite as 0 for false, and 1 for true
+        String Create_Payment_Table="CREATE TABLE " + Payment_Table_Name
+                + "(" + Payment_id + " INTEGER PRIMARY KEY,"
+                + Payment_name + " TEXT,"
+                + Payment_service + " TEXT,"
+                + Payment_date + " NUMERIC,"
+                + Payment_pay + " REAL,"
+                + Payment_Account_Holder + " TEXT,"
+                + Payment_Account_Number + " TEXT,"
+                + Payment_Payment_Method + " INTEGER,"
+                + Payment_Zip + " INTEGER" + ")";        // Auto (BOOL) is recorded in SQLite as 0 for false, and 1 for true
         db.execSQL(Create_Payment_Table);
 
         String Create_Register_Table="CREATE TABLE " + Register_Table_Name + "(" + Register_id + " INTEGER PRIMARY KEY,"
@@ -100,23 +98,19 @@ public class DBhandler extends SQLiteOpenHelper {
                 + "NUMERIC" + ")";
         db.execSQL(Create_Register_Table);
 
+        String Create_Payment_Method_Table="CREATE TABLE " + Payment_Method_Table_Name
+                + "(" + Payment_Method_id + " INTEGER PRIMARY KEY, "
+                + Payment_Method_type + " TEXT, "
+                + Payment_Method_paypalEmail + " TEXT, "
+                + Payment_Method_paypalPassword + " TEXT, "
+                + Payment_Method_bankAccountName + " TEXT, "
+                + Payment_Method_bankRoutingNumber+ " INTEGER, "
+                + Payment_Method_bankAccountNumber + " INTEGER, "
+                + Payment_Method_creditcardNumber+ " INTEGER, "
+                + Payment_Method_creditcardExpirationDate+ " INTEGER, "
+                + Payment_Method_creditcardSecurityCode+ " INTEGER" + ")";
+        db.execSQL(Create_Payment_Method_Table);
 
-        String Create_Bill_Table="CREATE TABLE " + Bill_Table_Name
-                + "(" + Bill_Table_id + " INTEGER PRIMARY KEY, "
-                + Bill_Table_Account_Holder + " TEXT, "
-                + Bill_Table_Account_Number + " TEXT, "
-                + Bill_Table_Account_Zip + " INTEGER, "
-                + Bill_Table_Provider + " TEXT, "
-                + Bill_Table_Bill_Name + " TEXT, "
-                + Bill_Table_Payment_Method + " INTEGER, "
-                + Bill_Table_User + " INTEGER, "
-                + "FOREIGN KEY(" + Bill_Table_Payment_Method
-                + ") REFERENCES " + Payment_Table_Name  + "(" + Payment_id + "), "
-                + "FOREIGN KEY("+  Bill_Table_User
-                + ") REFERENCES " + Table_Name + "(" + User_id +"))";
-
-        System.out.println("TABLE: " + Create_Bill_Table);
-        db.execSQL(Create_Bill_Table);
     }
     //Upgrading the Db
     @Override
@@ -126,7 +120,7 @@ public class DBhandler extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + Table_Name);
         db.execSQL("DROP TABLE IF EXISTS " + Payment_Table_Name);
         db.execSQL("DROP TABLE IF EXISTS " + Register_Table_Name);
-        db.execSQL("DROP TABLE IF EXISTS " + Bill_Table_Name);
+        db.execSQL("DROP TABLE IF EXISTS " + Payment_Method_Table_Name);
 
         //create the table again
         onCreate(db);
@@ -168,6 +162,10 @@ public class DBhandler extends SQLiteOpenHelper {
         cv.put(Payment_service,payment.getService());
         cv.put(Payment_date,payment.getDate());
         cv.put(Payment_pay,payment.getPay());
+        cv.put(Payment_Account_Holder, payment.getAccountHolder());
+        cv.put(Payment_Account_Number, payment.getAccountNumber());
+        cv.put(Payment_Zip, payment.getZip());
+        cv.put(Payment_Payment_Method, payment.getPaymentMethod());
         //cv.put(Payment_auto,payment.getAuto());
         // insert row
         db.insert(Payment_Table_Name, null, cv);
@@ -195,56 +193,6 @@ public class DBhandler extends SQLiteOpenHelper {
     }
 
 
-    //Add new Bill by calling this method
-    public void addBill(Bill bill)
-    {
-        // getting db instance for writing the user
-
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues cv = new ContentValues();
-
-        // cv.put(User_id,usr.getId());
-        cv.put(Bill_Table_Provider, bill.getProvider());
-        cv.put(Bill_Table_Account_Holder, bill.getAccountHolder());
-        cv.put(Bill_Table_Account_Number, bill.getAccountNumber());
-        cv.put(Bill_Table_Bill_Name, bill.getBillName());
-        cv.put(Bill_Table_Account_Zip, bill.getAccountZip());
-        cv.put(Bill_Table_Payment_Method, bill.getPaymentMethod());
-        cv.put(Bill_Table_User, bill.getUser());
-
-        //inserting row
-        db.insert(Bill_Table_Name, null, cv);
-        //close the database to avoid any leak
-        db.close();
-    }
-
-    //return bills for this user
-    public ArrayList<Bill> getAllBills(Integer userID)
-    {
-        ArrayList<Bill> billList = new ArrayList<>();
-        String selectQuery = "SELECT * FROM " + Bill_Table_Name + " WHERE " + Bill_Table_User + "=" + userID;
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
-
-        if (cursor.moveToFirst()){
-            do {
-                Bill bill = new Bill();
-                bill.setId(cursor.getString(0));
-                bill.setAccountHolder(cursor.getString(1));
-                bill.setAccountNumber(cursor.getString(2));
-                bill.setAccountZip(cursor.getString(3));
-                bill.setProvider(cursor.getString(4));
-                bill.setBillName(cursor.getString(5));
-                bill.setPaymentMethod(6);
-                bill.setUser(7);
-                billList.add(bill);
-            } while (cursor.moveToNext());
-        }
-        db.close();
-        cursor.close();
-        return billList;
-    }
-
     // Return all Payment objects as an ArrayList
     public ArrayList<Payment> getAllPayments()
     {
@@ -262,7 +210,10 @@ public class DBhandler extends SQLiteOpenHelper {
                 payment.setService(cursor.getString(2));
                 payment.setDate(cursor.getString(3));
                 payment.setPay(Double.parseDouble(cursor.getString(4)));
-//                payment.setAuto(Integer.parseInt(cursor.getString(5)));
+                payment.setAccountHolder(cursor.getString(5));
+                payment.setAccountNumber(cursor.getString(6));
+                payment.setPaymentMethod(cursor.getInt(7));
+                payment.setZip(cursor.getInt(8));
 
                 paymentList.add(payment);
             } while (cursor.moveToNext());

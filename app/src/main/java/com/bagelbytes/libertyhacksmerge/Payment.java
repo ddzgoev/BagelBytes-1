@@ -1,19 +1,25 @@
 package com.bagelbytes.libertyhacksmerge;
 
+import java.io.Serializable;
+
 /**
  * Created by tkaram on 8/16/2017.
  */
 
-public class Payment {
+public class Payment implements Serializable {
 
     //this is model class
+    private String accountNumber;
+    private String accountHolder;
+    private Integer zip;
+    private Integer paymentMethod;
+    private Integer id;
+    private String name;
+    private  String service; //provider
+    private  String date;
+    private  Double pay;
+    private Integer auto;
 
-    public Integer id;
-    public String name;
-    public String service;
-    public String date;
-    public Double pay;
-    public Integer auto;
 
     public Payment() {
     }
@@ -66,6 +72,40 @@ public class Payment {
         this.auto = auto;
     }
 
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public String getAccountHolder() {
+        return accountHolder;
+    }
+
+    public void setAccountHolder(String accountHolder) {
+        this.accountHolder = accountHolder;
+    }
+
+    public Integer getZip() {
+        return zip;
+    }
+
+    public void setZip(Integer zip) {
+        this.zip = zip;
+    }
+
+    public Integer getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(Integer paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+
     public Payment(Integer id, String name, String service, String date, Double pay, Integer auto) {
         this.id = id;
         this.name = name;
@@ -75,3 +115,16 @@ public class Payment {
         this.auto = auto;
     }
 }
+
+
+
+
+
+//        this.accountHolder = accountHolder;
+//        this.accountNumber = accountNumber;
+//        this.accountZip = accountZip;
+//        this.billName = billName;
+//        this.paymentMethod = paymentMethod;
+//        this.provider = provider;
+//        this.user = user;
+//
