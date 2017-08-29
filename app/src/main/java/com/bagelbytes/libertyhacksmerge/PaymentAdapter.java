@@ -73,7 +73,7 @@ public class PaymentAdapter extends BaseAdapter {
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
         String payFormat = formatter.format(entry.getPay());
 
-        paymentPay.setText("$" + payFormat);
+        paymentPay.setText(payFormat);
 
         return convertView;
     }

@@ -40,6 +40,7 @@ public class ListActivity extends Activity {
         db.addPayment(pay2);
 
         // Create List
+
         ListView listview = (ListView) findViewById(R.id.listview);
 
         // Get List
