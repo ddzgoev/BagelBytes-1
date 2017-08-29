@@ -286,7 +286,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/spinner"
-        android:entries="@array/dropDownArray"
+        android:entries="@array/addPaymentDropDownArray"
         android:popupBackground="@color/lightGrey"
         android:textColor="@color/colorWhite" />
 
@@ -311,7 +311,7 @@
         android:layout_width="300dp"
         android:layout_height="36dp"
         android:background="@drawable/spinner"
-        android:entries="@array/dropDownArray"
+        android:entries="@array/selectPaymentDropDownArray"
         android:popupBackground="@color/lightGrey"
         android:textColor="@color/colorWhite"
     />

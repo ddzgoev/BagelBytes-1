@@ -16,12 +16,12 @@ class PaymentMethod {
     public String creditcardExpirationDate;
     public int creditcardSecurityCode;
 
-    public PaymentMethod(Integer id, String type, String paypalEmail, String paypalPassword,
+    public PaymentMethod(String type, String paypalEmail, String paypalPassword,
                          String bankAccountName, int bankRoutingNumber, int bankAccountNumber,
                          int creditcardNumber, String creditcardExpirationDate,
                          int creditcardSecurityCode)
     {
-        this.id = id;
+
         this.type = type;
         this.paypalEmail = paypalEmail;
         this.paypalPassword = paypalPassword;
