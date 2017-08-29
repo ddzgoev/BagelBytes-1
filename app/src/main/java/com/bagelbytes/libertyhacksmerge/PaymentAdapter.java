@@ -11,6 +11,7 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.List;
 
 /**
@@ -68,7 +69,11 @@ public class PaymentAdapter extends BaseAdapter {
 
         // set pay
         TextView paymentPay = (TextView) convertView.findViewById(R.id.pay);
-        paymentPay.setText("$" + Double.toString(entry.getPay()));
+
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        String payFormat = formatter.format(entry.getPay());
+
+        paymentPay.setText("$" + payFormat);
 
         return convertView;
     }

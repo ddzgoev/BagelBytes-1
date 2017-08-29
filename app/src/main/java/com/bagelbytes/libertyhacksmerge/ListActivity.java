@@ -4,9 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -22,7 +22,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-public class ListActivity extends Activity implements AdapterView.OnItemClickListener {
+public class ListActivity extends Activity {
 
 
     @Override
@@ -34,14 +34,13 @@ public class ListActivity extends Activity implements AdapterView.OnItemClickLis
         DBhandler db = new DBhandler(ListActivity.this);
 
         // Create dummy payments for testing -- should be removed TODO
-        Payment pay1 = new Payment(1, "Car Insurance", "Liberty Mutual", "8/27", 104.56, 0);
+        Payment pay1 = new Payment(1, "Car Insurance", "Liberty Mutual", "8/24", 104.50, 0);
         Payment pay2 = new Payment(2, "Utility Bill", "Solar Co", "9/14", 60.34, 1);
         db.addPayment(pay1);
         db.addPayment(pay2);
 
         // Create List
         ListView listview = (ListView) findViewById(R.id.listview);
-        listview.setOnItemClickListener(this);
 
         // Get List
         List<Payment> paymentArrayList = db.getAllPayments();
@@ -50,8 +49,28 @@ public class ListActivity extends Activity implements AdapterView.OnItemClickLis
         Collections.sort(paymentArrayList, comparator);
 
         // Add List
-        PaymentAdapter adapter = new PaymentAdapter(this, paymentArrayList);
-        listview.setAdapter(adapter);
+        PaymentAdapter customAdapter = new PaymentAdapter(this, paymentArrayList);
+        listview.setAdapter(customAdapter);
+
+        // Manage List Item Clicks
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
+            @Override
+            public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
+                // Called when a list item is clicked
+
+             //   TextView name = (TextView) adapter.getChildAt(0);
+             //   TextView service = (TextView) adapter.getChildAt(1);
+
+             //   String paymentName = name.getText().toString();
+             //   String paymentService = service.getText().toString();
+
+                // Send the user to a new activity to edit their payment
+                Intent myIntent = new Intent(v.getContext(),Utility_Login.class);
+                startActivity(myIntent);
+
+            }
+        });
 
     }
 
@@ -76,24 +95,19 @@ public class ListActivity extends Activity implements AdapterView.OnItemClickLis
                 return 1;
             }
         }
+
     };
 
-    // This is used to determine which list item is being clicked
-    public void onItemClick(AdapterView<?> l, View v, int position, long id) {
-        // Send to specific edit view
-
-
-    }
-
-    public void onPayClick(View v)
-    {
-        //get the row the clicked button is in
+    // Called when the pay button of a list item is clicked.
+    public void onPayClick(View v) {
+        // Get the row the clicked button is in
         RelativeLayout vwParentRow = (RelativeLayout) v.getParent();
 
         TextView name = (TextView) vwParentRow.getChildAt(0);
         TextView service = (TextView) vwParentRow.getChildAt(1);
         TextView pay = (TextView) vwParentRow.getChildAt(3);
 
+        // Create payment confirmation dialog
         final NiftyDialogBuilder dialogBuilder=NiftyDialogBuilder.getInstance(this);
         dialogBuilder
                 .withTitle(name.getText())
@@ -110,6 +124,8 @@ public class ListActivity extends Activity implements AdapterView.OnItemClickLis
                 .setButton1Click(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        // Call payment function here - TODO
+                        // Create payment success dialog
                         final NiftyDialogBuilder successDialog=NiftyDialogBuilder.getInstance(dialogBuilder.getContext());
                         successDialog
                                 .withTitle("Success!")
@@ -140,15 +156,16 @@ public class ListActivity extends Activity implements AdapterView.OnItemClickLis
                 })
                 .show();
 
-
     }
 
-
+    // Called when the "Add New Payment" button is clicked
     public void onButtonClick(View v) {
         Intent myIntent = new Intent(v.getContext(),Utility_Login.class);
         v.getContext().startActivity(myIntent);
+
     }
 
+    // Called when the "Sign Out" button is clicked
     public void onSignOutClick(View v) {
         // Send to login view
         SharedPreferences preferences = getSharedPreferences("loginPrefs", MODE_PRIVATE);
@@ -156,6 +173,7 @@ public class ListActivity extends Activity implements AdapterView.OnItemClickLis
         editor.clear();
         editor.apply();
         finish();
+
     }
 
 }
