@@ -55,14 +55,15 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:id="@+id/editTextExpDate"
-        android:hint=" Enter Expiration Date"
-        android:inputType="textPersonName"
-        android:textColor="@color/colorWhite"
-        android:backgroundTint="@color/colorWhite"/>
+
+        <EditText
+            android:id="@+id/editTextExpDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorWhite"
+            android:hint=" Enter Expiration Date"
+            android:inputType="textPersonName"
+            android:textColor="@color/colorWhite" />
 </android.support.design.widget.TextInputLayout>
 
 <android.support.design.widget.TextInputLayout
@@ -79,14 +80,15 @@
     app:layout_constraintLeft_toLeftOf="parent"
     app:layout_constraintRight_toRightOf="parent"
     app:layout_constraintTop_toTopOf="parent">
-<EditText
-    android:layout_width="match_parent"
-    android:layout_height="35dp"
-    android:id="@+id/editTextAccountNumber"
-    android:hint="  Enter Account Number"
-    android:inputType="textPersonName"
-    android:textColor="@color/colorWhite"
-    android:backgroundTint="@color/colorWhite"/>
+
+    <EditText
+        android:id="@+id/editTextAccountNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorWhite"
+        android:hint="  Enter Account Number"
+        android:inputType="number"
+        android:textColor="@color/colorWhite" />
 </android.support.design.widget.TextInputLayout>
 
 <android.support.design.widget.TextInputLayout
@@ -103,14 +105,15 @@
     app:layout_constraintLeft_toLeftOf="parent"
     app:layout_constraintRight_toRightOf="parent"
     app:layout_constraintTop_toTopOf="parent">
-<EditText
-    android:layout_height="35dp"
-    android:layout_width="match_parent"
-    android:id="@+id/editTextRoutingNumber"
-    android:hint=" Enter Routing Number"
-    android:inputType="textPersonName"
-    android:textColor="@color/colorWhite"
-    android:backgroundTint="@color/colorWhite"/>
+
+    <EditText
+        android:id="@+id/editTextRoutingNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorWhite"
+        android:hint=" Enter Routing Number"
+        android:inputType="number"
+        android:textColor="@color/colorWhite" />
 </android.support.design.widget.TextInputLayout>
 
 <android.support.design.widget.TextInputLayout
@@ -131,11 +134,11 @@
     <EditText
         android:id="@+id/editTextSecurityCode"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:backgroundTint="@color/colorWhite"
         android:hint=" Enter Security Code"
-        android:inputType="textPersonName"
-        android:textColor="@color/colorWhite"/>
+        android:inputType="number"
+        android:textColor="@color/colorWhite" />
 </android.support.design.widget.TextInputLayout>
 
 <android.support.design.widget.TextInputLayout
@@ -152,15 +155,16 @@
     app:layout_constraintLeft_toLeftOf="parent"
     app:layout_constraintRight_toRightOf="parent"
     app:layout_constraintTop_toTopOf="parent" >
+
     <EditText
-        android:layout_height="35dp"
-        android:layout_width="match_parent"
         android:id="@+id/editTextAccountName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorWhite"
         android:ems="10"
         android:hint=" Enter Bank Account Name"
         android:inputType="textPersonName"
-        android:textColor="@color/colorWhite"
-        android:backgroundTint="@color/colorWhite"/>
+        android:textColor="@color/colorWhite" />
 </android.support.design.widget.TextInputLayout>
 
 <android.support.design.widget.TextInputLayout
@@ -177,13 +181,14 @@
     app:layout_constraintLeft_toLeftOf="parent"
     app:layout_constraintRight_toRightOf="parent"
     app:layout_constraintTop_toTopOf="parent">
+
     <EditText
         android:id="@+id/editTextNumber"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:backgroundTint="@color/colorWhite"
         android:hint=" Enter Credit Card Number"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textColor="@color/white" />
 </android.support.design.widget.TextInputLayout>
 
@@ -205,11 +210,11 @@
     <EditText
         android:id="@+id/editTextPassword"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorWhite"
         android:hint="Enter Password"
         android:inputType="textPassword"
-        android:textColor="@color/colorWhite"
-        android:backgroundTint="@color/colorWhite" />
+        android:textColor="@color/colorWhite" />
 </android.support.design.widget.TextInputLayout>
 
 <ImageView
@@ -238,10 +243,11 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginStart="16dp">
+
         <EditText
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
             android:backgroundTint="@color/colorWhite"
             android:hint="Enter Email"
             android:inputType="textPersonName"

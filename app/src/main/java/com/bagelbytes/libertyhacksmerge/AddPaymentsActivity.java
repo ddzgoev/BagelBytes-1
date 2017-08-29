@@ -126,10 +126,12 @@ public class AddPaymentsActivity extends AppCompatActivity implements Serializab
     }
 
 //Defines what happens when the cancel button is clicked
-    public void onCancelButtonClick(View v) {
-        // Send to blank payment view
+    public void onCancelButtonClick(View v)
+    {
+// Send to blank payment view
         finish();
     }
+
 //Defines what happens when the save button is clicked
     public void onSaveButtonClick(View v) {
         // Get the views for the text input fields by id
@@ -183,19 +185,24 @@ public class AddPaymentsActivity extends AppCompatActivity implements Serializab
                     -1, "", -1);
             thePaymentMethod = pm;
         }
+//If the option to select a new payment is selected:
+        if(selectPaymentMethodSpinner.equals("ADD NEW PAYMENT METHOD"))
+        {
 //add the newly created payment method to the paymentMethod table
             db.addPaymentMethod(thePaymentMethod);
-
 //set the integer value PaymentMethod to be the ID of the payment method object
-        thePayment.setPaymentMethod(thePaymentMethod.getId());
+            thePayment.setPaymentMethod(thePaymentMethod.getId());
+        }
 
 //SET THE VALUES OF THE DUMMY PAYMENT LIST ITEM TO BE DISPLAYED FOR OUR DEMO
-        thePayment.setId(0);
-        thePayment.setName("Electric Bill");
-        thePayment.setService("Atlantic City Electric");
-        thePayment.setDate("2/7/2017");
-        thePayment.setPay(245.64);
-        thePayment.setAuto(1);
+       // if(thePayment.getService().equals("Atlanta City Electric")) {
+            thePayment.setId(0);
+            thePayment.setName("Electric Bill");
+            thePayment.setService("Atlantic City Electric");
+            thePayment.setDate("9/7/2017");
+            thePayment.setPay(245.64);
+            thePayment.setAuto(1);
+        //}
 
 //add the payment to the database
         db.addPayment(thePayment);
@@ -209,8 +216,9 @@ public class AddPaymentsActivity extends AppCompatActivity implements Serializab
 //        private Integer auto;
 
 //display message that payment was succesfully saved
-        Toast.makeText(AddPaymentsActivity.this,"Bill Saved",Toast.LENGTH_SHORT).show();
-        finish();
+        Toast.makeText(AddPaymentsActivity.this,"Bill Saved Successfully.",Toast.LENGTH_SHORT).show();
+        Intent myIntent = new Intent(v.getContext(),ListActivity.class);
+        startActivity(myIntent);
     }
 //end of save button definition method
 
