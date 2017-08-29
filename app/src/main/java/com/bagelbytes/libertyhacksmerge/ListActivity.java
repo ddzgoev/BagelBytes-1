@@ -110,7 +110,26 @@ public class ListActivity extends Activity implements AdapterView.OnItemClickLis
                 .setButton1Click(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                        final NiftyDialogBuilder successDialog=NiftyDialogBuilder.getInstance(dialogBuilder.getContext());
+                        successDialog
+                                .withTitle("Success!")
+                                .withTitleColor("#FFFFFF")
+                                .withDividerColor("#4775A0")
+                                .withMessage("Your payment has been sent.")
+                                .withMessageColor("#FFFFFF")
+                                .withDialogColor("#002663")
+                                .withDuration(300)
+                                .withEffect(Effectstype.Fadein)
+                                .withButton1Text("Done")
+                                .isCancelableOnTouchOutside(true)
+                                .setButton1Click(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        successDialog.dismiss();
+                                    }
+                                });
+                                dialogBuilder.dismiss();
+                                successDialog.show();
                     }
                 })
                 .setButton2Click(new View.OnClickListener() {

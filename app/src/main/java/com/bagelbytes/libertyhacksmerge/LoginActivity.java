@@ -34,8 +34,13 @@ public class LoginActivity extends AppCompatActivity {
         login=(Button)findViewById(R.id.login);
         register=(Button)findViewById(R.id.register);
         saveLoginCheckBox = (CheckBox)findViewById(R.id.saveLoginCheckBox);
+
         loginPreferences = getSharedPreferences("loginPrefs", MODE_PRIVATE);
         loginPrefsEditor = loginPreferences.edit();
+        loginPrefsEditor.putString("username", uname.getText().toString());
+        loginPrefsEditor.putString("password", pswd.getText().toString());
+        loginPrefsEditor.putBoolean("saveLogin",saveLoginCheckBox.isChecked());
+        loginPrefsEditor.commit();
         saveLogin = loginPreferences.getBoolean("saveLogin", false);
         if(saveLogin=true) {
             uname.setText(loginPreferences.getString("username", ""));
@@ -65,6 +70,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else
                 {
+
                     Toast.makeText(LoginActivity.this,"Hello, " +name,Toast.LENGTH_SHORT).show();
                     v.getContext().startActivity(myIntent);
                 }
@@ -81,6 +87,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onClickSaveLogin(View view) {
+
+
         if(view == login) {
             InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(uname.getWindowToken(),0);
@@ -88,7 +96,8 @@ public class LoginActivity extends AppCompatActivity {
             username = uname.getText().toString();
             password = pswd.getText().toString();
 
-            if(saveLoginCheckBox.isChecked()) {
+            final CheckBox checkBox = (CheckBox)findViewById(R.id.saveLoginCheckBox);
+            if(checkBox.isChecked()) {
                 loginPrefsEditor.putBoolean("saveLogin", true);
                 loginPrefsEditor.putString("username", username);
                 loginPrefsEditor.putString("password", password);
