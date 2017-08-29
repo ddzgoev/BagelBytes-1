@@ -114,17 +114,33 @@ public class Payment implements Serializable {
         this.pay = pay;
         this.auto = auto;
     }
+
+    public Payment(Integer id, String name, String service, String date, Double pay, Integer auto, String accountNumber, String accountHolder, Integer zip, Integer paymentMethod) {
+        this.id = id;
+        this.name = name;
+        this.service = service;
+        this.date = date;
+        this.pay = pay;
+        this.auto = auto;
+        this.accountNumber = accountNumber;
+        this.accountHolder = accountHolder;
+        this.zip = zip;
+        this.paymentMethod = paymentMethod;
+    }
+
+    @Override
+    public String toString() {
+        return "Payment{" +
+                "accountNumber='" + accountNumber + '\'' +
+                ", accountHolder='" + accountHolder + '\'' +
+                ", zip=" + zip +
+                ", paymentMethod=" + paymentMethod +
+                ", id=" + id +
+                ", name='" + name + '\'' +
+                ", service='" + service + '\'' +
+                ", date='" + date + '\'' +
+                ", pay=" + pay +
+                ", auto=" + auto +
+                '}';
+    }
 }
-
-
-
-
-
-//        this.accountHolder = accountHolder;
-//        this.accountNumber = accountNumber;
-//        this.accountZip = accountZip;
-//        this.billName = billName;
-//        this.paymentMethod = paymentMethod;
-//        this.provider = provider;
-//        this.user = user;
-//

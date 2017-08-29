@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -33,12 +32,6 @@ public class ListActivity extends Activity {
         // Connect to SQLite DB
         DBhandler db = new DBhandler(ListActivity.this);
 
-        // Create dummy payments for testing -- should be removed TODO
-        Payment pay1 = new Payment(1, "Car Insurance", "Liberty Mutual", "8/24", 104.50, 0);
-        Payment pay2 = new Payment(2, "Utility Bill", "Solar Co", "9/14", 60.34, 1);
-        db.addPayment(pay1);
-        db.addPayment(pay2);
-
         // Create List
 
         ListView listview = (ListView) findViewById(R.id.listview);
@@ -50,7 +43,7 @@ public class ListActivity extends Activity {
         Collections.sort(paymentArrayList, comparator);
 
         // Add List
-        PaymentAdapter customAdapter = new PaymentAdapter(this, paymentArrayList);
+        final PaymentAdapter customAdapter = new PaymentAdapter(this, paymentArrayList);
         listview.setAdapter(customAdapter);
 
         // Manage List Item Clicks
@@ -60,11 +53,7 @@ public class ListActivity extends Activity {
             public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
                 // Called when a list item is clicked
 
-             //   TextView name = (TextView) adapter.getChildAt(0);
-             //   TextView service = (TextView) adapter.getChildAt(1);
-
-             //   String paymentName = name.getText().toString();
-             //   String paymentService = service.getText().toString();
+                // Gather Payment info and pass to the next activity - TODO
 
                 // Send the user to a new activity to edit their payment
                 Intent myIntent = new Intent(v.getContext(),Utility_Login.class);
@@ -125,7 +114,7 @@ public class ListActivity extends Activity {
                 .setButton1Click(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        // Call payment function here - TODO
+                        // Call payment function here... if we had one. Currently all payments succeed.
                         // Create payment success dialog
                         final NiftyDialogBuilder successDialog=NiftyDialogBuilder.getInstance(dialogBuilder.getContext());
                         successDialog

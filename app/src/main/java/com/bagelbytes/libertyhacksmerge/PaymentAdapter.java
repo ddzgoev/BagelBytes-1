@@ -5,18 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
-
-import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.List;
-
-/**
- * Created by dulong_jere on 8/17/17.
- */
 
 public class PaymentAdapter extends BaseAdapter {
 
@@ -49,6 +40,18 @@ public class PaymentAdapter extends BaseAdapter {
         // get selected entry
         Payment entry = listPayment.get(pos);
 
+        // get class variables
+        Integer id = entry.getId();
+        String name = entry.getName();
+        String service = entry.getService();
+        String date = entry.getDate();
+        Double pay = entry.getPay();
+        Integer auto = entry.getAuto();
+        String accountNumber = entry.getAccountNumber();
+        String accountHolder = entry.getAccountHolder();
+        Integer zip = entry.getZip();
+        Integer paymentMethod = entry.getPaymentMethod();
+
         // inflating list view layout if null
         if(convertView == null) {
             LayoutInflater inflater = LayoutInflater.from(mContext);
@@ -57,26 +60,28 @@ public class PaymentAdapter extends BaseAdapter {
 
         // set name
         TextView paymentName = (TextView)convertView.findViewById(R.id.name);
-        paymentName.setText(entry.getName());
+        paymentName.setText(name);
 
         // set service
         TextView paymentService = (TextView)convertView.findViewById(R.id.service);
-        paymentService.setText(entry.getService());
+        paymentService.setText(service);
 
         // set date
         TextView paymentDate = (TextView) convertView.findViewById(R.id.date);
-        paymentDate.setText(entry.getDate());
+        paymentDate.setText(date);
 
         // set pay
         TextView paymentPay = (TextView) convertView.findViewById(R.id.pay);
 
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
-        String payFormat = formatter.format(entry.getPay());
+        String payFormat = formatter.format(pay);
 
         paymentPay.setText(payFormat);
 
         return convertView;
     }
+
+
 
 
 }
