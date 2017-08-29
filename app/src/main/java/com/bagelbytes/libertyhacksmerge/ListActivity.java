@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -111,7 +110,26 @@ public class ListActivity extends Activity implements AdapterView.OnItemClickLis
                 .setButton1Click(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                        final NiftyDialogBuilder successDialog=NiftyDialogBuilder.getInstance(dialogBuilder.getContext());
+                        successDialog
+                                .withTitle("Success!")
+                                .withTitleColor("#FFFFFF")
+                                .withDividerColor("#4775A0")
+                                .withMessage("Your payment has been sent.")
+                                .withMessageColor("#FFFFFF")
+                                .withDialogColor("#002663")
+                                .withDuration(300)
+                                .withEffect(Effectstype.Fadein)
+                                .withButton1Text("Done")
+                                .isCancelableOnTouchOutside(true)
+                                .setButton1Click(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        successDialog.dismiss();
+                                    }
+                                });
+                                dialogBuilder.dismiss();
+                                successDialog.show();
                     }
                 })
                 .setButton2Click(new View.OnClickListener() {
@@ -121,6 +139,7 @@ public class ListActivity extends Activity implements AdapterView.OnItemClickLis
                     }
                 })
                 .show();
+
 
     }
 
@@ -132,10 +151,11 @@ public class ListActivity extends Activity implements AdapterView.OnItemClickLis
 
     public void onSignOutClick(View v) {
         // Send to login view
-            SharedPreferences preferences = getSharedPreferences("loginPrefs", MODE_PRIVATE);
-            SharedPreferences.Editor editor = preferences.edit();
-            editor.clear();
-            editor.apply();
-            finish();
-        }
+        SharedPreferences preferences = getSharedPreferences("loginPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor= preferences.edit();
+        editor.clear();
+        editor.apply();
+        finish();
     }
+
+}
