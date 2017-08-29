@@ -73,18 +73,19 @@ public class Utility_Login extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-            //TODO - make a check to see if fields are filled
-            Payment p = new Payment();
-            //must include
-            p.setZip(Integer.parseInt(edtAccountZIP.getText().toString()));
-            p.setAccountNumber(edtAccountNumber.getText().toString());
-            p.setName(edtBillName.getText().toString());
-            p.setAccountHolder(edtAccountHolder.getText().toString());
-            p.setService(spnProvider.getSelectedItem().toString());
-            Intent myIntent = new Intent(v.getContext(),AddPaymentsActivity.class);
-            myIntent.putExtra("payment", p);
-            v.getContext().startActivity(myIntent);
-
+            if (edtAccountZIP.getText().toString().equals("")){
+                Toast.makeText(Utility_Login.this, "PLEASE ENTER YOUR ZIP CODE", Toast.LENGTH_SHORT).show();
+            }else {
+                Payment p = new Payment();
+                p.setZip(Integer.parseInt(edtAccountZIP.getText().toString()));
+                p.setAccountNumber(edtAccountNumber.getText().toString());
+                p.setName(edtBillName.getText().toString());
+                p.setAccountHolder(edtAccountHolder.getText().toString());
+                p.setService(spnProvider.getSelectedItem().toString());
+                Intent myIntent = new Intent(v.getContext(), AddPaymentsActivity.class);
+                myIntent.putExtra("payment", p);
+                v.getContext().startActivity(myIntent);
+            }
             }
         });
 

@@ -61,6 +61,7 @@
         android:textColorHint="@color/colorWhite">
         <EditText
             android:id="@+id/edtBillName"
+            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/colorWhite"
@@ -78,6 +79,7 @@
         android:textColorHint="@color/colorWhite">
         <EditText
             android:id="@+id/edtAccountNumber"
+            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Account Number"
@@ -96,6 +98,7 @@
         android:textColorHint="@color/colorWhite">
         <EditText
             android:id="@+id/edtAccountZIP"
+            android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Account ZIP"
@@ -113,6 +116,7 @@
         android:textColorHint="@color/colorWhite">
         <EditText
             android:id="@+id/edtAccountHolder"
+            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Account Holder"

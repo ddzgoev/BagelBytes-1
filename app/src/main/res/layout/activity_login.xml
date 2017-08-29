@@ -17,6 +17,7 @@
 
         <EditText
             android:id="@+id/uname"
+            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:backgroundTint="@android:color/white"
