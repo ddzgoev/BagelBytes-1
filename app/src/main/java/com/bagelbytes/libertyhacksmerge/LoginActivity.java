@@ -34,7 +34,6 @@ public class LoginActivity extends AppCompatActivity {
         login=(Button)findViewById(R.id.login);
         register=(Button)findViewById(R.id.register);
         saveLoginCheckBox = (CheckBox)findViewById(R.id.saveLoginCheckBox);
-
         loginPreferences = getSharedPreferences("loginPrefs", MODE_PRIVATE);
         loginPrefsEditor = loginPreferences.edit();
         loginPrefsEditor.putString("username", uname.getText().toString());
@@ -48,6 +47,8 @@ public class LoginActivity extends AppCompatActivity {
             saveLoginCheckBox.setChecked(true);
 
         }
+
+        //sends user to register activity
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+        //checks login info and then sends user to ListActivity
         login.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -78,7 +80,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
         db=new DBhandler(LoginActivity.this);
-//inserting users
+//inserting users to the db
         db.addUser(new User("jay", "liberty123"));
         db.addUser(new User("sa", ""));
         db.addUser(new User("david", "liberty123"));
@@ -87,7 +89,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onClickSaveLogin(View view) {
-
 
         if(view == login) {
             InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -105,6 +106,7 @@ public class LoginActivity extends AppCompatActivity {
             }else{
                 loginPrefsEditor.clear();
                 loginPrefsEditor.commit();
+                loginPrefsEditor.apply();
             }
             saveLogin();
         }

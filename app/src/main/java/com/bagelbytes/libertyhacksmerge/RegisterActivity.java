@@ -90,8 +90,8 @@ public class RegisterActivity extends AppCompatActivity {
                     boolean error = jObj.getBoolean("error");
 
                     if (!error) {
-                        String newuname = jObj.getJSONObject("user").getString("name");
-                        Toast.makeText(getApplicationContext(), "Hi " + newuname + ", You are successfully Added!", Toast.LENGTH_SHORT).show();
+                        String fullname = jObj.getJSONObject("user").getString("name");
+                        Toast.makeText(getApplicationContext(), "Hi " + fullname + ", You are successfully Added!", Toast.LENGTH_SHORT).show();
 
                         // Launch login activity
                         Intent intent = new Intent(

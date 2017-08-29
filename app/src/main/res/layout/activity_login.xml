@@ -108,6 +108,7 @@
         android:onClick="onClickSaveLogin"
         android:text="Remember Me"
         android:layout_marginTop="86dp"
+        android:checked="true"
         android:layout_below="@+id/unameWidget"
         android:layout_centerHorizontal="true" />
 
