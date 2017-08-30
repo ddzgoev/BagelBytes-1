@@ -305,11 +305,11 @@ public class DBhandler extends SQLiteOpenHelper {
             String paypalEmail = cursor.getString(2);
             String paypalPassword = cursor.getString(3);
             String bankAccountName = cursor.getString(4);
-            int bankRoutingNumber = Integer.parseInt(cursor.getString(5));
-            int bankAccountNumber = Integer.parseInt(cursor.getString(6));
-            int creditcardNumber = Integer.parseInt(cursor.getString(7));
+            String bankRoutingNumber = cursor.getString(5);
+            String bankAccountNumber = cursor.getString(6);
+            String creditcardNumber = cursor.getString(7);
             String creditcardExpirationDate = cursor.getString(8);
-            int creditcardSecurityCode = Integer.parseInt(cursor.getString(9));
+            String creditcardSecurityCode = cursor.getString(9);
             pm = new PaymentMethod(type, paypalEmail, paypalPassword, bankAccountName, bankRoutingNumber, bankAccountNumber, creditcardNumber, creditcardExpirationDate, creditcardSecurityCode);
         }
         db.close();

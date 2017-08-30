@@ -3,8 +3,8 @@
     <string-array name="selectPaymentDropDownArray">
         <item>Select Payment Method</item>
         <item>Credit Card ending in 2399</item>
-        <item>Bank Account ([Account Name])</item>
-        <item>Paypal ({PayPal Email)</item>
+        <item>Bank Account: Checking</item>
+        <item>Paypal: 13donnad@gmail.com</item>
         <item>ADD NEW PAYMENT METHOD</item>
 
     </string-array>
