@@ -19,7 +19,7 @@ package com.bagelbytes.libertyhacksmerge;
 public class DBhandler extends SQLiteOpenHelper {
     //all constants as they are static and final(Db=Database)
     //Db Version
-    private static final int Db_Version=7;
+    private static final int Db_Version=8;
 
     //Db Name
     private static final String Db_Name="ourDB";
@@ -157,7 +157,6 @@ public class DBhandler extends SQLiteOpenHelper {
         // getting db instance for writing the payment
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues cv=new ContentValues();
-        //cv.put(Payment_id,payment.getId());
         cv.put(Payment_name,payment.getName());
         cv.put(Payment_service,payment.getService());
         cv.put(Payment_date,payment.getDate());
@@ -190,6 +189,20 @@ public class DBhandler extends SQLiteOpenHelper {
         // insert row
         db.insert(Payment_Method_Table_Name, null, cv);
         db.close();
+    }
+
+    public int generatePaymentMethodID(PaymentMethod pm){
+        // getting db instance for writing the payment
+        int id=-1;
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor cursor=db.rawQuery("SELECT rowid FROM " + Payment_Method_Table_Name +
+                                " WHERE " + Payment_Method_paypalEmail + "=?",new String[]{pm.getPaypalEmail()});
+        if(cursor.getCount()>0) {
+            cursor.moveToFirst();
+            id=cursor.getInt(0);
+            cursor.close();
+        }
+        return id;
     }
 
 
@@ -225,7 +238,7 @@ public class DBhandler extends SQLiteOpenHelper {
 
 
     // Return PaymentMethod used
-    public PaymentMethod getPaymentMethod(Integer id)
+    public PaymentMethod getPaymentMethodByID(Integer id)
     {
         PaymentMethod pm = null;
         PaymentMethod pmFailed = new PaymentMethod();

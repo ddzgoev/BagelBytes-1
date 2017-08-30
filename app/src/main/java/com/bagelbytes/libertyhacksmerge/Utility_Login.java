@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -68,6 +69,7 @@ public class Utility_Login extends AppCompatActivity {
             //Do first time stuff here
             Payment p = (Payment) getIntent().getSerializableExtra("payment");
             spnProvider.setSelection(getIndex(spnProvider,p.getName()));
+            Log.d("TEST", Integer.toString(getIndex(spnProvider, p.getName())));
             edtBillName.setText(p.getName());
             edtAccountHolder.setText(p.getAccountHolder());
             edtAccountNumber.setText(p.getAccountNumber());

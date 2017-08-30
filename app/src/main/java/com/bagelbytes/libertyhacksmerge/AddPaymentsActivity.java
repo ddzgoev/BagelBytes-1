@@ -28,10 +28,11 @@ public class AddPaymentsActivity extends AppCompatActivity implements Serializab
         //Get payment object from previous activity with key "payment" from the intent
         thePayment = (Payment) getIntent().getSerializableExtra("payment");
 
-        if (thePayment.getPay() != null){
+        if (thePayment.getPaymentMethod() != null){
+            Log.d("PAYMENT: ", thePayment.getPay().toString());
             Log.d("PAYMENT: ", thePayment.getPaymentMethod().toString());
-            // /PaymentMethod pm = db.getPaymentMethod(thePayment.getPaymentMethod());
-            //Log.d("DATA: ", pm.getType());
+            PaymentMethod pm = db.getPaymentMethodByID(thePayment.getPaymentMethod());
+            Log.d("DATA: ", pm.getType());
         }
         //make stuff invisible until user actions are taken to make them visible
         makeAllTextFieldsInvisible();
@@ -202,18 +203,18 @@ public class AddPaymentsActivity extends AppCompatActivity implements Serializab
 
 //SET THE VALUES OF THE DUMMY PAYMENT LIST ITEM TO BE DISPLAYED FOR OUR DEMO
        // if(thePayment.getService().equals("Atlanta City Electric")) {
-            thePayment.setId(0);
-            thePayment.setName("Electric Bill");
-            thePayment.setService("Atlantic City Electric");
-            thePayment.setDate("9/7/2017");
-            thePayment.setPay(245.64);
-            thePayment.setAuto(1);
-            thePayment.setAccountHolder("Manny");
-            thePayment.setZip("28780");
-            thePayment.setAccountNumber("1234567");
-        //}
+        PaymentMethod pm = new PaymentMethod("PayPal", "sam@test.com", "abc",
+                "",-1, -1,-1, "", -1);
 
-//add the payment to the database
+        db.addPaymentMethod(pm);
+        int id = db.generatePaymentMethodID(pm);
+        System.out.println("ID: " + id);
+        thePayment.setPaymentMethod(id);
+        thePayment.setId(0);
+        thePayment.setDate("9/7/2017");
+        thePayment.setPay(240.60);
+        thePayment.setAuto(1);
+        //add the payment to the database
         db.addPayment(thePayment);
 
 
