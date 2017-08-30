@@ -238,7 +238,7 @@ public class DBhandler extends SQLiteOpenHelper {
             }
         }else if(pm.getType().equals("Credit Card")){
             Cursor cursor = db.rawQuery("SELECT rowid FROM " + Payment_Method_Table_Name +
-                    " WHERE " + Payment_Method_creditcardNumber + "=? AND " + Payment_Method_creditcardSecurityCode + "=?", new String[]{Integer.toString(pm.getCreditcardNumber()), Integer.toString(pm.getCreditcardSecurityCode())});
+                    " WHERE " + Payment_Method_creditcardNumber + "=? AND " + Payment_Method_creditcardSecurityCode + "=?", new String[]{pm.getCreditcardNumber(), pm.getCreditcardSecurityCode()});
             if (cursor.getCount() > 0) {
                 cursor.moveToFirst();
                 id = cursor.getInt(0);
@@ -246,7 +246,7 @@ public class DBhandler extends SQLiteOpenHelper {
             }
         }else if(pm.getType().equals("Bank Account")){
             Cursor cursor = db.rawQuery("SELECT rowid FROM " + Payment_Method_Table_Name +
-                    " WHERE " + Payment_Method_bankAccountNumber + "=? AND " + Payment_Method_bankRoutingNumber + "=?", new String[]{Integer.toString(pm.getBankAccountNumber()), Integer.toString(pm.getBankRoutingNumber())});
+                    " WHERE " + Payment_Method_bankAccountNumber + "=? AND " + Payment_Method_bankRoutingNumber + "=?", new String[]{pm.getBankAccountNumber(), pm.getBankRoutingNumber()});
             if (cursor.getCount() > 0) {
                 cursor.moveToFirst();
                 id = cursor.getInt(0);
