@@ -89,11 +89,12 @@ public class ListActivity extends Activity {
 
     // Called when the pay button of a list item is clicked.
     public void onPayClick(View v) {
+        final DBhandler db = new DBhandler(ListActivity.this);
         // Get the row the clicked button is in
         RelativeLayout vwParentRow = (RelativeLayout) v.getParent();
 
-        TextView name = (TextView) vwParentRow.getChildAt(0);
-        TextView service = (TextView) vwParentRow.getChildAt(1);
+        final TextView name = (TextView) vwParentRow.getChildAt(0);
+        final TextView service = (TextView) vwParentRow.getChildAt(1);
         TextView pay = (TextView) vwParentRow.getChildAt(3);
 
         // Create payment confirmation dialog
@@ -131,6 +132,8 @@ public class ListActivity extends Activity {
                                     @Override
                                     public void onClick(View v) {
                                         successDialog.dismiss();
+                                        db.deletePayment(name.getText().toString(), service.getText().toString());
+                                        startActivity(new Intent(ListActivity.this, ListActivity.class));
                                     }
                                 });
                                 dialogBuilder.dismiss();

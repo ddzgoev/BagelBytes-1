@@ -188,6 +188,23 @@ public class DBhandler extends SQLiteOpenHelper {
         db.update(Payment_Table_Name, cv, "rowid=" + Integer.toString(id), null);
     }
 
+    public void deletePayment(Payment payment){
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(Payment_name,payment.getName());
+        cv.put(Payment_service,payment.getService());
+        cv.put(Payment_date,payment.getDate());
+        cv.put(Payment_pay,payment.getPay());
+        cv.put(Payment_Account_Holder, payment.getAccountHolder());
+        cv.put(Payment_Account_Number, payment.getAccountNumber());
+        cv.put(Payment_Zip, payment.getZip());
+        cv.put(Payment_Payment_Method, payment.getPaymentMethod());
+
+        int id = generatePaymentID(payment);
+
+        db.delete(Payment_Table_Name, "rowid=" + Integer.toString(id), null);
+    }
+
     public int generatePaymentID(Payment p) {
         // getting db instance for writing the payment
         int id = -1;
@@ -201,6 +218,13 @@ public class DBhandler extends SQLiteOpenHelper {
             }
         return id;
 
+    }
+    public void deletePayment(String name, String provider){
+        SQLiteDatabase db=this.getWritableDatabase();
+        db.execSQL(
+           "DELETE FROM payment WHERE name = '"+name+"' AND service = '"+provider+"';"
+
+        );
     }
 
 
