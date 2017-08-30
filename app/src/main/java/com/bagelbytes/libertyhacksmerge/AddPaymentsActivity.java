@@ -23,6 +23,8 @@ public class AddPaymentsActivity extends AppCompatActivity implements Serializab
     DBhandler db;
     Payment thePayment;
     PaymentMethod thePaymentMethod;
+    boolean update = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,12 +32,8 @@ public class AddPaymentsActivity extends AppCompatActivity implements Serializab
 
         //Get payment object from previous activity with key "payment" from the intent
         thePayment = (Payment) getIntent().getSerializableExtra("payment");
-
-        if (thePayment.getPaymentMethod() != null){
-            Log.d("PAYMENT: ", thePayment.getPay().toString());
-            Log.d("PAYMENT: ", thePayment.getPaymentMethod().toString());
-            PaymentMethod pm = db.getPaymentMethodByID(thePayment.getPaymentMethod());
-            Log.d("DATA: ", pm.getType());
+        if (thePayment.getPay() != null){
+            update = true;
         }
         //make stuff invisible until user actions are taken to make them visible
         makeAllTextFieldsInvisible();
@@ -221,8 +219,15 @@ public class AddPaymentsActivity extends AppCompatActivity implements Serializab
         thePayment.setPay(240.60);
         thePayment.setAuto(1);
         //add the payment to the database
-        db.addPayment(thePayment);
+        if (update){
+            Log.d("TEST:", "UPDATING");
+            db.updatePayment(thePayment);
+            update = false;
+        }else {
 
+            Log.d("TEST:", "NEW");
+            db.addPayment(thePayment);
+        }
 
 //        private Integer id;
 //        private String name;
