@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -162,7 +161,8 @@ public class ListActivity extends Activity {
         SharedPreferences.Editor editor= preferences.edit();
         editor.clear();
         editor.apply();
-        finish();
+        Intent myIntent = new Intent(v.getContext(),LoginActivity.class);
+        v.getContext().startActivity(myIntent);
 
     }
 
