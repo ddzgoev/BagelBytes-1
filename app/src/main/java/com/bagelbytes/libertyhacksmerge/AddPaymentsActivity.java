@@ -15,6 +15,9 @@ import android.widget.Toast;
 
 import java.io.Serializable;
 
+import io.card.payment.CardIOActivity;
+import io.card.payment.CreditCard;
+
 public class AddPaymentsActivity extends AppCompatActivity implements Serializable{
 
     DBhandler db;
@@ -85,6 +88,8 @@ public class AddPaymentsActivity extends AppCompatActivity implements Serializab
                     findViewById(R.id.editTextSecurityCode).setVisibility(View.VISIBLE);
                     findViewById(R.id.layTextSecurityCode).setVisibility(View.VISIBLE);
 
+                    findViewById(R.id.button7).setVisibility(View.VISIBLE);
+
                 }
                 if(parent.getItemAtPosition(position).toString().equals("Bank Account")){
                     makeAllTextFieldsInvisible();
@@ -130,6 +135,7 @@ public class AddPaymentsActivity extends AppCompatActivity implements Serializab
         findViewById(R.id.editTextAccountNumber).setVisibility(View.GONE);
         findViewById(R.id.layTextAccountNumber).setVisibility(View.GONE);
 
+        findViewById(R.id.button7).setVisibility(View.GONE);
     }
 
 //Defines what happens when the cancel button is clicked
@@ -178,18 +184,18 @@ public class AddPaymentsActivity extends AppCompatActivity implements Serializab
 
         if(typeSelection.equals("PayPal")) {
             PaymentMethod pm = new PaymentMethod(typeSelection, emailInput, passInput,
-                    "",-1, -1,-1, "", -1);
+                    "","", "","", "", "");
             thePaymentMethod = pm;
         }
         if(typeSelection.equals("Credit Card")) {
-            PaymentMethod pm = new PaymentMethod(typeSelection, "", "", "",-1, -1,
-                    Integer.parseInt(numberInput), expDateInput, Integer.parseInt(securityCodeInput));
+            PaymentMethod pm = new PaymentMethod(typeSelection, "", "", "","", "",
+                    numberInput, expDateInput, securityCodeInput);
             thePaymentMethod = pm;
         }
         if(typeSelection.equals("Bank Account")) {
             PaymentMethod pm = new PaymentMethod(typeSelection, "", "",
-                    accountNameInput, Integer.parseInt(accountRoutingNumberInput), Integer.parseInt(accountNumberInput),
-                    -1, "", -1);
+                    accountNameInput, accountRoutingNumberInput, accountNumberInput,
+                    "", "", "");
             thePaymentMethod = pm;
         }
 //If the option to select a new payment is selected:
@@ -204,7 +210,7 @@ public class AddPaymentsActivity extends AppCompatActivity implements Serializab
 //SET THE VALUES OF THE DUMMY PAYMENT LIST ITEM TO BE DISPLAYED FOR OUR DEMO
        // if(thePayment.getService().equals("Atlanta City Electric")) {
         PaymentMethod pm = new PaymentMethod("PayPal", "sam@test.com", "abc",
-                "",-1, -1,-1, "", -1);
+                "","", "","", "","");
 
         db.addPaymentMethod(pm);
         int id = db.generatePaymentMethodID(pm);
@@ -231,6 +237,59 @@ public class AddPaymentsActivity extends AppCompatActivity implements Serializab
         startActivity(myIntent);
     }
 //end of save button definition method
+public void onScanPress(View v) {
+    Intent scanIntent = new Intent(this, CardIOActivity.class);
 
+    // customize these values to suit your needs.
+    scanIntent.putExtra(CardIOActivity.EXTRA_REQUIRE_EXPIRY, true); // default: false
+    scanIntent.putExtra(CardIOActivity.EXTRA_REQUIRE_CVV, false); // default: false
+    scanIntent.putExtra(CardIOActivity.EXTRA_REQUIRE_POSTAL_CODE, false); // default: false
+
+    // MY_SCAN_REQUEST_CODE is arbitrary and is only used within this activity.
+    startActivityForResult(scanIntent, 5343);
+}
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        EditText myEditText3 = (EditText) findViewById(R.id.editTextNumber);
+        EditText myEditText4 = (EditText) findViewById(R.id.editTextExpDate);
+        EditText myEditText5 = (EditText) findViewById(R.id.editTextSecurityCode);
+
+        if (requestCode == 5343) {
+            String cardNumber = "";
+            String expDate = "";
+            String cvv = "";
+            if (data != null && data.hasExtra(CardIOActivity.EXTRA_SCAN_RESULT)) {
+                CreditCard scanResult = data.getParcelableExtra(CardIOActivity.EXTRA_SCAN_RESULT);
+
+                // Never log a raw card number. Avoid displaying it, but if necessary use getFormattedCardNumber(
+                cardNumber = scanResult.cardNumber;
+                // Do something with the raw number, e.g.:
+                // myService.setCardNumber( scanResult.cardNumber );
+
+                if (scanResult.isExpiryValid()) {
+                    expDate = scanResult.expiryMonth + "/" + scanResult.expiryYear;
+                }
+
+                if (scanResult.cvv != null) {
+                    // Never log or display a CVV
+                    cvv += "CVV has " + scanResult.cvv.length() + " digits.\n";
+                }
+
+
+            }
+            else {
+                cardNumber = "Scan was canceled.";
+
+            }
+            // do something with resultDisplayStr, maybe display it in a textView
+            // resultTextView.setText(resultDisplayStr);
+            myEditText3.setText(cardNumber);
+            myEditText4.setText(expDate);
+            //myEditText5.setText("");
+        }
+        // else handle other activity results
+    }
 
 }
