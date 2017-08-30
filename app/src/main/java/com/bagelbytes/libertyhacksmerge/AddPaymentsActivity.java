@@ -217,56 +217,56 @@ public class AddPaymentsActivity extends AppCompatActivity implements Serializab
         System.out.println("ID: " + id);
         thePayment.setPaymentMethod(id);
         thePayment.setId(0);
-        thePayment.setDate("11/7/2017");
+        thePayment.setDate("11/7");
         thePayment.setPay(54.79);
         thePayment.setAuto(1);
 
         if(previousActivitySpinString.equals("Atlantic City Electric")) {
                      thePayment.setPaymentMethod(id);
                      thePayment.setId(0);
-                     thePayment.setDate("9/7/2017");
+                     thePayment.setDate("9/7");
             thePayment.setPay(240.60);
                      thePayment.setAuto(1);
                  }
                if(previousActivitySpinString.equals("Consolidated Edison New York")) {
                         thePayment.setPaymentMethod(id);
                         thePayment.setId(0);
-                        thePayment.setDate("10/8/2017");
+                        thePayment.setDate("10/8");
                         thePayment.setPay(37.87);
                        thePayment.setAuto(1);
                     }
                if(previousActivitySpinString.equals("Eversource Energy")) {
                         thePayment.setPaymentMethod(id);
                         thePayment.setId(0);
-                        thePayment.setDate("9/36/2017");
+                        thePayment.setDate("9/36");
                         thePayment.setPay(322.31);
                         thePayment.setAuto(1);
                     }
                 if(previousActivitySpinString.equals("Hawaii Electric")) {
                         thePayment.setPaymentMethod(id);
                     thePayment.setId(0);
-                        thePayment.setDate("9/23/2017");
+                        thePayment.setDate("9/23");
                         thePayment.setPay(209.63);
                         thePayment.setAuto(1);
                     }
                 if(previousActivitySpinString.equals("Jersey Central Power and Light")) {
                         thePayment.setPaymentMethod(id);
                         thePayment.setId(0);
-                        thePayment.setDate("9/7/2017");
+                        thePayment.setDate("9/7");
                         thePayment.setPay(177.68);
                         thePayment.setAuto(1);
                     }
                 if(previousActivitySpinString.equals("Liberty Mutual Insurance")) {
                         thePayment.setPaymentMethod(id);
                         thePayment.setId(0);
-                    thePayment.setDate("11/25/2017");
+                    thePayment.setDate("11/25");
                         thePayment.setPay(197.39);
                         thePayment.setAuto(1);
                     }
                 if(previousActivitySpinString.equals("Baltimore Gas & Electric")) {
                         thePayment.setPaymentMethod(id);
                         thePayment.setId(0);
-                        thePayment.setDate("9/7/2017");
+                        thePayment.setDate("9/7");
                         thePayment.setPay(289.49);
                         thePayment.setAuto(1);
                     }
