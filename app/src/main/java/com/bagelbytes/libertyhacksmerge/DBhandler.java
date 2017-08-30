@@ -171,6 +171,39 @@ public class DBhandler extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void updatePayment(Payment payment){
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(Payment_name,payment.getName());
+        cv.put(Payment_service,payment.getService());
+        cv.put(Payment_date,payment.getDate());
+        cv.put(Payment_pay,payment.getPay());
+        cv.put(Payment_Account_Holder, payment.getAccountHolder());
+        cv.put(Payment_Account_Number, payment.getAccountNumber());
+        cv.put(Payment_Zip, payment.getZip());
+        cv.put(Payment_Payment_Method, payment.getPaymentMethod());
+
+        int id = generatePaymentID(payment);
+
+        db.update(Payment_Table_Name, cv, Integer.toString(id), null);
+    }
+
+    public int generatePaymentID(Payment p) {
+        // getting db instance for writing the payment
+        int id = -1;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT rowid FROM " + Payment_Table_Name +
+                    " WHERE " + Payment_Account_Number + "=? AND " + Payment_service + "=?", new String[]{p.getAccountNumber(), p.getService()});
+            if (cursor.getCount() > 0) {
+                cursor.moveToFirst();
+                id = cursor.getInt(0);
+                cursor.close();
+            }
+        return id;
+
+    }
+
+
     public void addPaymentMethod(PaymentMethod paymentMethod){
         // getting db instance for writing the payment
         SQLiteDatabase db=this.getWritableDatabase();
@@ -191,18 +224,37 @@ public class DBhandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    public int generatePaymentMethodID(PaymentMethod pm){
+    public int generatePaymentMethodID(PaymentMethod pm) {
         // getting db instance for writing the payment
-        int id=-1;
-        SQLiteDatabase db=this.getReadableDatabase();
-        Cursor cursor=db.rawQuery("SELECT rowid FROM " + Payment_Method_Table_Name +
-                                " WHERE " + Payment_Method_paypalEmail + "=?",new String[]{pm.getPaypalEmail()});
-        if(cursor.getCount()>0) {
-            cursor.moveToFirst();
-            id=cursor.getInt(0);
-            cursor.close();
+        int id = -1;
+        SQLiteDatabase db = this.getReadableDatabase();
+        if (pm.getType().equals("PayPal")) {
+            Cursor cursor = db.rawQuery("SELECT rowid FROM " + Payment_Method_Table_Name +
+                    " WHERE " + Payment_Method_paypalEmail + "=?", new String[]{pm.getPaypalEmail()});
+            if (cursor.getCount() > 0) {
+                cursor.moveToFirst();
+                id = cursor.getInt(0);
+                cursor.close();
+            }
+        }else if(pm.getType().equals("Credit Card")){
+            Cursor cursor = db.rawQuery("SELECT rowid FROM " + Payment_Method_Table_Name +
+                    " WHERE " + Payment_Method_creditcardNumber + "=? AND " + Payment_Method_creditcardSecurityCode + "=?", new String[]{Integer.toString(pm.getCreditcardNumber()), Integer.toString(pm.getCreditcardSecurityCode())});
+            if (cursor.getCount() > 0) {
+                cursor.moveToFirst();
+                id = cursor.getInt(0);
+                cursor.close();
+            }
+        }else if(pm.getType().equals("Bank Account")){
+            Cursor cursor = db.rawQuery("SELECT rowid FROM " + Payment_Method_Table_Name +
+                    " WHERE " + Payment_Method_bankAccountNumber + "=? AND " + Payment_Method_bankRoutingNumber + "=?", new String[]{Integer.toString(pm.getBankAccountNumber()), Integer.toString(pm.getBankRoutingNumber())});
+            if (cursor.getCount() > 0) {
+                cursor.moveToFirst();
+                id = cursor.getInt(0);
+                cursor.close();
+            }
         }
         return id;
+
     }
 
 
