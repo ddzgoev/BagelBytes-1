@@ -224,6 +224,40 @@ public class DBhandler extends SQLiteOpenHelper {
     }
 
 
+    // Return PaymentMethod used
+    public PaymentMethod getPaymentMethod(Integer id)
+    {
+        PaymentMethod pm = null;
+        PaymentMethod pmFailed = new PaymentMethod();
+        boolean success = false;
+        String selectQuery = "SELECT * FROM " + Payment_Method_Table_Name + "WHERE id=" + id;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        cursor.moveToFirst();
+        if (cursor.moveToFirst()){
+            //Integer id = Integer.parseInt(cursor.getString(0));
+            String type = cursor.getString(1);
+            String paypalEmail = cursor.getString(2);
+            String paypalPassword = cursor.getString(3);
+            String bankAccountName = cursor.getString(4);
+            int bankRoutingNumber = Integer.parseInt(cursor.getString(5));
+            int bankAccountNumber = Integer.parseInt(cursor.getString(6));
+            int creditcardNumber = Integer.parseInt(cursor.getString(7));
+            String creditcardExpirationDate = cursor.getString(8);
+            int creditcardSecurityCode = Integer.parseInt(cursor.getString(9));
+            pm = new PaymentMethod(type, paypalEmail, paypalPassword, bankAccountName, bankRoutingNumber, bankAccountNumber, creditcardNumber, creditcardExpirationDate, creditcardSecurityCode);
+        }
+        db.close();
+        cursor.close();
+
+        if (pm != null) {
+            return pm;
+        }else{
+            return pmFailed;
+        }
+    }
+
+
     public void registerUser(Register user) {
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues cv=new ContentValues();

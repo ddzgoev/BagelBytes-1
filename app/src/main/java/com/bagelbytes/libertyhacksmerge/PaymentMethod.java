@@ -16,6 +16,10 @@ class PaymentMethod {
     public String creditcardExpirationDate;
     public int creditcardSecurityCode;
 
+    public PaymentMethod(){
+
+    }
+
     public PaymentMethod(String type, String paypalEmail, String paypalPassword,
                          String bankAccountName, int bankRoutingNumber, int bankAccountNumber,
                          int creditcardNumber, String creditcardExpirationDate,

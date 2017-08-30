@@ -28,9 +28,15 @@ public class AddPaymentsActivity extends AppCompatActivity implements Serializab
         //Get payment object from previous activity with key "payment" from the intent
         thePayment = (Payment) getIntent().getSerializableExtra("payment");
 
-
+        if (thePayment.getPay() != null){
+            Log.d("PAYMENT: ", thePayment.getPaymentMethod().toString());
+            // /PaymentMethod pm = db.getPaymentMethod(thePayment.getPaymentMethod());
+            //Log.d("DATA: ", pm.getType());
+        }
         //make stuff invisible until user actions are taken to make them visible
         makeAllTextFieldsInvisible();
+
+
 
         Spinner selectPaymentMethodSpinner = (Spinner) findViewById(R.id.spinnerSelectPaymentMethod);
 
