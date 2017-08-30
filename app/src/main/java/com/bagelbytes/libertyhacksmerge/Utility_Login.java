@@ -98,6 +98,7 @@ public class Utility_Login extends AppCompatActivity {
                 p.setName(edtBillName.getText().toString());
                 p.setAccountHolder(edtAccountHolder.getText().toString());
                 p.setService(spnProvider.getSelectedItem().toString());
+                Spinner spnProvider = (Spinner) findViewById(R.id.spnProviders);
 
                 p.setPay(pay);
                 p.setId(id);
@@ -105,6 +106,7 @@ public class Utility_Login extends AppCompatActivity {
 
                 Intent myIntent = new Intent(v.getContext(), AddPaymentsActivity.class);
                 myIntent.putExtra("payment", p);
+                myIntent.putExtra("spinSelection", spnProvider.getSelectedItem().toString());
                 v.getContext().startActivity(myIntent);
             }
 
