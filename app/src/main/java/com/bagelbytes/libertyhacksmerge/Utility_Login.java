@@ -36,12 +36,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Utility_Login extends AppCompatActivity {
+    private Integer id;
+    private  String date;
+    private  Double pay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_utility);
-
         Button submit = (Button) findViewById(R.id.btnSubmit);
         Button cancel = (Button) findViewById(R.id.btnCancel);
         final Spinner spnProvider = (Spinner) findViewById(R.id.spnProviders);
@@ -62,6 +64,21 @@ public class Utility_Login extends AppCompatActivity {
         spnProvider.setAdapter(staticAdapter);
 
 
+        if(getIntent().getSerializableExtra("payment") != null) {
+            //Do first time stuff here
+            Payment p = (Payment) getIntent().getSerializableExtra("payment");
+            spnProvider.setSelection(getIndex(spnProvider,p.getName()));
+            edtBillName.setText(p.getName());
+            edtAccountHolder.setText(p.getAccountHolder());
+            edtAccountNumber.setText(p.getAccountNumber());
+            edtAccountZIP.setText(p.getZip());
+            //Sets this up to pass onto the next activity
+            id = p.getId();
+            date = p.getDate();
+            pay = p.getPay();
+        }
+
+
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,26 +90,41 @@ public class Utility_Login extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-            if (edtAccountZIP.getText().toString().equals("")){
-                Toast.makeText(Utility_Login.this, "PLEASE ENTER YOUR ZIP CODE", Toast.LENGTH_SHORT).show();
-            }else {
                 Payment p = new Payment();
-                p.setZip(Integer.parseInt(edtAccountZIP.getText().toString()));
+                p.setZip(edtAccountZIP.getText().toString());
                 p.setAccountNumber(edtAccountNumber.getText().toString());
                 p.setName(edtBillName.getText().toString());
                 p.setAccountHolder(edtAccountHolder.getText().toString());
                 p.setService(spnProvider.getSelectedItem().toString());
+
+                p.setPay(pay);
+                p.setId(id);
+                p.setDate(date);
+
                 Intent myIntent = new Intent(v.getContext(), AddPaymentsActivity.class);
                 myIntent.putExtra("payment", p);
                 v.getContext().startActivity(myIntent);
             }
-            }
+
         });
 
 
 
     }
 
+    //private method of your class
+    private int getIndex(Spinner spinner, String myString)
+    {
+        int index = 0;
+
+        for (int i=0;i<spinner.getCount();i++){
+            if (spinner.getItemAtPosition(i).toString().equalsIgnoreCase(myString)){
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
 
 
 //    public void firstStep(String username, String password){

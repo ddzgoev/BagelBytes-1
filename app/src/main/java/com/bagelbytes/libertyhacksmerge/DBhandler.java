@@ -213,7 +213,7 @@ public class DBhandler extends SQLiteOpenHelper {
                 payment.setAccountHolder(cursor.getString(5));
                 payment.setAccountNumber(cursor.getString(6));
                 payment.setPaymentMethod(cursor.getInt(7));
-                payment.setZip(cursor.getInt(8));
+                payment.setZip(cursor.getString(8));
 
                 paymentList.add(payment);
             } while (cursor.moveToNext());

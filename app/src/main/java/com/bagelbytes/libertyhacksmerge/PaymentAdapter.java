@@ -49,7 +49,7 @@ public class PaymentAdapter extends BaseAdapter {
         Integer auto = entry.getAuto();
         String accountNumber = entry.getAccountNumber();
         String accountHolder = entry.getAccountHolder();
-        Integer zip = entry.getZip();
+        String zip = entry.getZip();
         Integer paymentMethod = entry.getPaymentMethod();
 
         // inflating list view layout if null

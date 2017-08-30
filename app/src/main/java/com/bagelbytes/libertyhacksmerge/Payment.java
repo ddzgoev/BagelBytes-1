@@ -11,7 +11,7 @@ public class Payment implements Serializable {
     //this is model class
     private String accountNumber;
     private String accountHolder;
-    private Integer zip;
+    private String zip;
     private Integer paymentMethod;
     private Integer id;
     private String name;
@@ -89,11 +89,11 @@ public class Payment implements Serializable {
         this.accountHolder = accountHolder;
     }
 
-    public Integer getZip() {
+    public String getZip() {
         return zip;
     }
 
-    public void setZip(Integer zip) {
+    public void setZip(String zip) {
         this.zip = zip;
     }
 
@@ -115,7 +115,7 @@ public class Payment implements Serializable {
         this.auto = auto;
     }
 
-    public Payment(Integer id, String name, String service, String date, Double pay, Integer auto, String accountNumber, String accountHolder, Integer zip, Integer paymentMethod) {
+    public Payment(Integer id, String name, String service, String date, Double pay, Integer auto, String accountNumber, String accountHolder, String zip, Integer paymentMethod) {
         this.id = id;
         this.name = name;
         this.service = service;
