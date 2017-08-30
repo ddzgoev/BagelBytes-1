@@ -224,7 +224,6 @@ public class AddPaymentsActivity extends AppCompatActivity implements Serializab
             db.updatePayment(thePayment);
             update = false;
         }else {
-
             Log.d("TEST:", "NEW");
             db.addPayment(thePayment);
         }

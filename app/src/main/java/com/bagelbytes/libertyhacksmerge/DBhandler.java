@@ -19,7 +19,7 @@ package com.bagelbytes.libertyhacksmerge;
 public class DBhandler extends SQLiteOpenHelper {
     //all constants as they are static and final(Db=Database)
     //Db Version
-    private static final int Db_Version=11;
+    private static final int Db_Version=13;
 
     //Db Name
     private static final String Db_Name="ourDB";
@@ -185,7 +185,7 @@ public class DBhandler extends SQLiteOpenHelper {
 
         int id = generatePaymentID(payment);
 
-        db.update(Payment_Table_Name, cv, Integer.toString(id), null);
+        db.update(Payment_Table_Name, cv, "rowid=" + Integer.toString(id), null);
     }
 
     public int generatePaymentID(Payment p) {
