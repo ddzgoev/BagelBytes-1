@@ -131,18 +131,18 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.38">
+        android:layout_height="0dp"
+        android:layout_weight="1">
         <Button
             android:id="@+id/btnCancel"
             android:text="CANCEL"
             android:textColor="@color/colorWhite"
-            android:textSize="20dp"
             android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="left"
+            android:layout_height="50dp"
+            android:layout_gravity="left|bottom"
             android:layout_weight="0.30"
             android:layout_marginTop="30dp"
+            android:textSize="20dp"
             android:background="@drawable/button"
             />
 
@@ -154,14 +154,14 @@
         <Button
             android:id="@+id/btnSubmit"
             android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="right"
+            android:layout_height="50dp"
+            android:layout_gravity="right|bottom"
             android:layout_marginTop="30dp"
             android:layout_weight="0.32"
             android:background="@drawable/button"
             android:text="NEXT"
-            android:textColor="@color/colorWhite"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
 
 
