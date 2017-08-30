@@ -202,6 +202,9 @@ public class AddPaymentsActivity extends AppCompatActivity implements Serializab
             thePayment.setDate("9/7/2017");
             thePayment.setPay(245.64);
             thePayment.setAuto(1);
+            thePayment.setAccountHolder("Manny");
+            thePayment.setZip(28780);
+            thePayment.setAccountNumber("1234567");
         //}
 
 //add the payment to the database

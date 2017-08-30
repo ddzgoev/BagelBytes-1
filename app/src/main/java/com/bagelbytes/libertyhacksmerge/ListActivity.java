@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -53,12 +54,11 @@ public class ListActivity extends Activity {
             public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
                 // Called when a list item is clicked
 
-                // Gather Payment info and pass to the next activity - TODO
-
+                Payment p = (Payment) adapter.getItemAtPosition(position);
                 // Send the user to a new activity to edit their payment
                 Intent myIntent = new Intent(v.getContext(),Utility_Login.class);
+                myIntent.putExtra("payment", p);
                 startActivity(myIntent);
-
             }
         });
 
