@@ -68,8 +68,8 @@ public class Utility_Login extends AppCompatActivity {
         if(getIntent().getSerializableExtra("payment") != null) {
             //Do first time stuff here
             Payment p = (Payment) getIntent().getSerializableExtra("payment");
-            spnProvider.setSelection(getIndex(spnProvider,p.getName()));
-            Log.d("TEST", Integer.toString(getIndex(spnProvider, p.getName())));
+            String name = p.getService();
+            spnProvider.setSelection(getIndex(spnProvider, name));
             edtBillName.setText(p.getName());
             edtAccountHolder.setText(p.getAccountHolder());
             edtAccountNumber.setText(p.getAccountNumber());
@@ -118,8 +118,9 @@ public class Utility_Login extends AppCompatActivity {
     private int getIndex(Spinner spinner, String myString)
     {
         int index = 0;
-
+        System.out.println("MY STRING: " + myString);
         for (int i=0;i<spinner.getCount();i++){
+            System.out.println("TESTING: " + spinner.getItemAtPosition(i).toString());
             if (spinner.getItemAtPosition(i).toString().equalsIgnoreCase(myString)){
                 index = i;
                 break;
