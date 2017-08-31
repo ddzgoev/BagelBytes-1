@@ -40,6 +40,7 @@ public class Utility_Login extends AppCompatActivity {
     private Integer id;
     private  String date;
     private  Double pay;
+    private Payment original = new Payment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,9 @@ public class Utility_Login extends AppCompatActivity {
         final EditText edtAccountNumber = (EditText) findViewById(R.id.edtAccountNumber);
         final EditText edtAccountHolder = (EditText) findViewById(R.id.edtAccountHolder);
         final EditText edtAccountZIP = (EditText) findViewById(R.id.edtAccountZIP);
+
+
+
 
         // Create an ArrayAdapter using the string array and a default spinner
         ArrayAdapter<CharSequence> staticAdapter = ArrayAdapter
@@ -78,6 +82,18 @@ public class Utility_Login extends AppCompatActivity {
             id = p.getId();
             date = p.getDate();
             pay = p.getPay();
+
+
+            original.setAccountHolder(p.getAccountHolder());
+            original.setService(p.getService());
+            original.setAccountNumber(p.getAccountNumber());
+            original.setDate(p.getDate());
+            original.setName(p.getName());
+            original.setZip(p.getZip());
+            original.setAuto(p.getAuto());
+            original.setId(p.getId());
+            original.setPay(p.getPay());
+            original.setPaymentMethod(p.getPaymentMethod());
         }
 
 
@@ -106,6 +122,7 @@ public class Utility_Login extends AppCompatActivity {
 
                 Intent myIntent = new Intent(v.getContext(), AddPaymentsActivity.class);
                 myIntent.putExtra("payment", p);
+                myIntent.putExtra("original", original);
                 myIntent.putExtra("spinSelection", spnProvider.getSelectedItem().toString());
                 v.getContext().startActivity(myIntent);
             }

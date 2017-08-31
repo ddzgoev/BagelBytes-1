@@ -19,7 +19,7 @@ package com.bagelbytes.libertyhacksmerge;
 public class DBhandler extends SQLiteOpenHelper {
     //all constants as they are static and final(Db=Database)
     //Db Version
-    private static final int Db_Version=13;
+    private static final int Db_Version=14;
 
     //Db Name
     private static final String Db_Name="ourDB";
@@ -171,7 +171,7 @@ public class DBhandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void updatePayment(Payment payment){
+    public void updatePayment(Payment payment, Payment orig){
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(Payment_name,payment.getName());
@@ -183,9 +183,11 @@ public class DBhandler extends SQLiteOpenHelper {
         cv.put(Payment_Zip, payment.getZip());
         cv.put(Payment_Payment_Method, payment.getPaymentMethod());
 
-        int id = generatePaymentID(payment);
 
-        db.update(Payment_Table_Name, cv, "rowid=" + Integer.toString(id), null);
+        String[] args = new String[]{orig.getService(), orig.getAccountNumber()};
+        db.update(Payment_Table_Name, cv, Payment_service + " =? AND " + Payment_Account_Number + "=?", args);
+        db.close();
+
     }
 
     public void deletePayment(Payment payment){
@@ -209,13 +211,15 @@ public class DBhandler extends SQLiteOpenHelper {
         // getting db instance for writing the payment
         int id = -1;
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT rowid FROM " + Payment_Table_Name +
-                    " WHERE " + Payment_Account_Number + "=? AND " + Payment_service + "=?", new String[]{p.getAccountNumber(), p.getService()});
-            if (cursor.getCount() > 0) {
-                cursor.moveToFirst();
-                id = cursor.getInt(0);
-                cursor.close();
-            }
+        Cursor cursor = db.rawQuery("SELECT * FROM " + Payment_Table_Name, new String[]{});
+
+        //Cursor cursor = db.rawQuery("SELECT rowid FROM " + Payment_Table_Name +
+        //            " WHERE " + Payment_Account_Number + "=? AND " + Payment_service + "=?", new String[]{p.getAccountNumber(), p.getService()});
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            id = cursor.getInt(0);
+            cursor.close();
+        }
         return id;
 
     }
