@@ -24,6 +24,8 @@ public class AddPaymentsActivity extends AppCompatActivity implements Serializab
     Payment thePayment;
     PaymentMethod thePaymentMethod;
     String previousActivitySpinString;
+
+    Payment original = new Payment();
     boolean update = false;
 
     @Override
@@ -33,14 +35,14 @@ public class AddPaymentsActivity extends AppCompatActivity implements Serializab
 
         //Get payment object from previous activity with key "payment" from the intent
         thePayment = (Payment) getIntent().getSerializableExtra("payment");
+
         previousActivitySpinString = (String) getIntent().getSerializableExtra("spinSelection").toString();
         if (thePayment.getPay() != null){
             update = true;
+            original = (Payment) getIntent().getSerializableExtra("original");
         }
         //make stuff invisible until user actions are taken to make them visible
         makeAllTextFieldsInvisible();
-
-
 
         Spinner selectPaymentMethodSpinner = (Spinner) findViewById(R.id.spinnerSelectPaymentMethod);
 
@@ -214,7 +216,6 @@ public class AddPaymentsActivity extends AppCompatActivity implements Serializab
 
         db.addPaymentMethod(pm);
         int id = db.generatePaymentMethodID(pm);
-        System.out.println("ID: " + id);
         thePayment.setPaymentMethod(id);
         thePayment.setId(0);
         thePayment.setDate("11/7");
@@ -222,59 +223,60 @@ public class AddPaymentsActivity extends AppCompatActivity implements Serializab
         thePayment.setAuto(1);
 
         if(previousActivitySpinString.equals("Atlantic City Electric")) {
-                     thePayment.setPaymentMethod(id);
-                     thePayment.setId(0);
-                     thePayment.setDate("9/7");
+            thePayment.setPaymentMethod(id);
+            thePayment.setId(0);
+            thePayment.setDate("9/7");
             thePayment.setPay(240.60);
-                     thePayment.setAuto(1);
-                 }
-               if(previousActivitySpinString.equals("Consolidated Edison New York")) {
-                        thePayment.setPaymentMethod(id);
-                        thePayment.setId(0);
-                        thePayment.setDate("10/8");
-                        thePayment.setPay(37.87);
-                       thePayment.setAuto(1);
-                    }
-               if(previousActivitySpinString.equals("Eversource Energy")) {
-                        thePayment.setPaymentMethod(id);
-                        thePayment.setId(0);
-                        thePayment.setDate("9/36");
-                        thePayment.setPay(322.31);
-                        thePayment.setAuto(1);
-                    }
-                if(previousActivitySpinString.equals("Hawaii Electric")) {
-                        thePayment.setPaymentMethod(id);
-                    thePayment.setId(0);
-                        thePayment.setDate("9/23");
-                        thePayment.setPay(209.63);
-                        thePayment.setAuto(1);
-                    }
-                if(previousActivitySpinString.equals("Jersey Central Power and Light")) {
-                        thePayment.setPaymentMethod(id);
-                        thePayment.setId(0);
-                        thePayment.setDate("9/7");
-                        thePayment.setPay(177.68);
-                        thePayment.setAuto(1);
-                    }
-                if(previousActivitySpinString.equals("Liberty Mutual Insurance")) {
-                        thePayment.setPaymentMethod(id);
-                        thePayment.setId(0);
-                    thePayment.setDate("11/25");
-                        thePayment.setPay(197.39);
-                        thePayment.setAuto(1);
-                    }
-                if(previousActivitySpinString.equals("Baltimore Gas & Electric")) {
-                        thePayment.setPaymentMethod(id);
-                        thePayment.setId(0);
-                        thePayment.setDate("9/7");
-                        thePayment.setPay(289.49);
-                        thePayment.setAuto(1);
-                    }
+            thePayment.setAuto(1);
+         }
+       if(previousActivitySpinString.equals("Consolidated Edison New York")) {
+                thePayment.setPaymentMethod(id);
+                thePayment.setId(0);
+                thePayment.setDate("10/8");
+                thePayment.setPay(37.87);
+               thePayment.setAuto(1);
+            }
+       if(previousActivitySpinString.equals("Eversource Energy")) {
+                thePayment.setPaymentMethod(id);
+                thePayment.setId(0);
+                thePayment.setDate("9/36");
+                thePayment.setPay(322.31);
+                thePayment.setAuto(1);
+            }
+        if(previousActivitySpinString.equals("Hawaii Electric")) {
+                thePayment.setPaymentMethod(id);
+            thePayment.setId(0);
+                thePayment.setDate("9/23");
+                thePayment.setPay(209.63);
+                thePayment.setAuto(1);
+            }
+        if(previousActivitySpinString.equals("Jersey Central Power and Light")) {
+                thePayment.setPaymentMethod(id);
+                thePayment.setId(0);
+                thePayment.setDate("9/7");
+                thePayment.setPay(177.68);
+                thePayment.setAuto(1);
+            }
+        if(previousActivitySpinString.equals("Liberty Mutual Insurance")) {
+                thePayment.setPaymentMethod(id);
+                thePayment.setId(0);
+                thePayment.setDate("11/25");
+                thePayment.setPay(197.39);
+                thePayment.setAuto(1);
+            }
+        if(previousActivitySpinString.equals("Baltimore Gas & Electric")) {
+                thePayment.setPaymentMethod(id);
+                thePayment.setId(0);
+                thePayment.setDate("9/7");
+                thePayment.setPay(289.49);
+                thePayment.setAuto(1);
+            }
 
         //add the payment to the database
         if (update){
-            Log.d("TEST:", "UPDATING");
-            db.updatePayment(thePayment);
+            Log.d("TEST:", "UPDATE");
+            Log.d("TEST:", thePayment.toString());
+            db.updatePayment(thePayment,original);
             update = false;
         }else {
             Log.d("TEST:", "NEW");
